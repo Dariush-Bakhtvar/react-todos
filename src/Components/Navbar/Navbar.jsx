@@ -1,13 +1,13 @@
 import style from './Navbar.module.scss';
-import { AiFillGithub, AiFillSetting, AiOutlineLogout, AiOutlineUser } from 'react-icons/ai';
+import { AiFillGithub, AiFillSetting, AiOutlineLogout } from 'react-icons/ai';
 import { MdOutlineForwardToInbox, MdNotifications } from 'react-icons/md';
 import withActive from '../Hoc/withActive';
 const Navbar = ({ isActive, setIsActive }) => {
-  const Modal = () => {
+  const DropDown = () => {
     return isActive && (
       <ul className={style.submenu}>
         <li className={style.userInfo}>
-          <AiOutlineUser />
+          <AiFillGithub />
           <span>Dariush Bakhtvar</span>
         </li>
         <li>
@@ -17,10 +17,6 @@ const Navbar = ({ isActive, setIsActive }) => {
         <li>
           <MdOutlineForwardToInbox />
           <span>inbox</span>
-        </li>
-        <li>
-          <AiFillGithub />
-          <span>git</span>
         </li>
         <li>
           <AiFillSetting />
@@ -45,7 +41,7 @@ const Navbar = ({ isActive, setIsActive }) => {
       <div className={style.profile} onClick={setIsActive}>
         <img src={require('../../asset/Img/Profile.jpg')} alt="Profile" />
         <span className={style.status}></span>
-        {Modal()}
+        {DropDown()}
       </div>
     </nav>
   )
