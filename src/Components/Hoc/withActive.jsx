@@ -1,11 +1,11 @@
 import { useState } from 'react';
 const withActive = (WrappedComponent) => {
   const UpdatedComponent = (props) => {
-    const [isActive, setIsActive] = useState(false);
+    const [isActive, setActive] = useState(false);
     const isActiveToggler = () => {
-      setIsActive(!isActive);
+      setActive(!isActive);
     }
-    return <WrappedComponent {...props} isActive={isActive} setIsActive={isActiveToggler} />
+    return <WrappedComponent {...props} isActive={isActive} setActive={isActiveToggler} />
   }
   return UpdatedComponent;
 }

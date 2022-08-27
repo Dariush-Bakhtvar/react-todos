@@ -1,0 +1,19 @@
+@import '../../../asset/Sass/mixin';
+@import '../../../asset/Sass/variable';
+.RightOverlay{
+width: 50%;
+height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+button{
+  width: 240px;
+  height: 40px;
+  background:transparent;
+  border:3px solid $color-secondry;
+  color: $color-secondry;
+  border-radius: 5px;
+  font-size: 1.8rem;
+  font-family: 600;
+}
+}

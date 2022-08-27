@@ -1,0 +1,15 @@
+@import '../../asset/Sass/mixin';
+@import '../../asset/Sass/variable';
+.Overlay{
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  overflow: hidden;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+}
+.ActiveOverlay{
+  transform: translateX(-100.2%);
+}

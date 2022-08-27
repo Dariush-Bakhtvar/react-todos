@@ -1,11 +1,18 @@
 import React from 'react'
-
-const Content = () => {
+// import withActive from '../Hoc/withActive';
+import Overlay from '../Overlay/Overlay';
+import style from './Content.module.scss';
+import LeftLayout from './Layout/LeftLayout/LeftLayout';
+import RightLayout from './Layout/RightLayout/RightLayout';
+const Content = ({ isActive, setActive }) => {
   return (
-    <div>
-      test content
-    </div>
+    <section className={style.Wrapper}>
+      <LeftLayout />
+      <RightLayout />
+      <Overlay />
+    </section>
   )
 }
 
-export default Content
+// export default withActive(Content);
+export default Content;

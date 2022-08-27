@@ -2,7 +2,7 @@ import style from './Navbar.module.scss';
 import { AiFillGithub, AiFillSetting, AiOutlineLogout } from 'react-icons/ai';
 import { MdOutlineForwardToInbox, MdNotifications } from 'react-icons/md';
 import withActive from '../Hoc/withActive';
-const Navbar = ({ isActive, setIsActive }) => {
+const Navbar = ({ isActive, setActive }) => {
   const DropDown = () => {
     return isActive && (
       <ul className={style.submenu}>
@@ -38,7 +38,7 @@ const Navbar = ({ isActive, setIsActive }) => {
       <div className={style.Logo}>
         <img src={require('../../asset/Img/Logo.png')} alt="Logo" />
       </div>
-      <div className={style.profile} onClick={setIsActive}>
+      <div className={style.profile} onClick={setActive}>
         <img src={require('../../asset/Img/Profile.jpg')} alt="Profile" />
         <span className={style.status}></span>
         {DropDown()}
@@ -47,4 +47,4 @@ const Navbar = ({ isActive, setIsActive }) => {
   )
 }
 
-export default withActive(Navbar)
+export default withActive(Navbar);

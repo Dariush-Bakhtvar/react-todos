@@ -1,0 +1,10 @@
+@import '../../asset/Sass/mixin';
+@import '../../asset/Sass/variable';
+.Wrapper{
+  position: relative;
+  background-color: rgba($color:$bg-secondry, $alpha: 0.6);
+  width: 90%;
+  height: 530px;
+  margin: 10px auto;
+  overflow: hidden;
+}
