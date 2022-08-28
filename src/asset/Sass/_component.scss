@@ -1,0 +1,10 @@
+@import './mixin';
+@import './variable';
+%OverlayPanel{
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  @include flex(space-around,center);
+  flex-direction: column;
+}

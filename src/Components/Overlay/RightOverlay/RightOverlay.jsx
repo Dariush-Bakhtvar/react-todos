@@ -4,7 +4,11 @@ import style from './RightOverlay.module.scss';
 const RightOverlay = ({ isActive, setActive }) => {
   return (
     <div className={style.RightOverlay}>
-      <button onClick={setActive}>Add Task</button>
+      <div className={`${style.Panel} ${isActive && style.fadeIn}`}>
+        <h1>سلام</h1>
+        <p>برنامه ی امروزت چیه؟ بریم کار هارو زمانبندی کنیم!؟</p>
+        <button onClick={setActive}>بزن بریم </button>
+      </div>
     </div>
   )
 }

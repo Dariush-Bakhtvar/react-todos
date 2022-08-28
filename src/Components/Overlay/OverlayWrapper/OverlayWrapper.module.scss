@@ -2,9 +2,14 @@
 @import '../../../asset/Sass/variable';
 .OverlayWrapper{
   position: relative;
+  left: 0;
    height: 100%;
   width: 200%;
   // background: linear-gradient(90deg, #f5534f, #313a87) no-repeat 0 0;
-  //   background-size: cover;
+    // background-size: cover;
     background-color: $bg-Navbar;
+    transition: left .6s ease-in-out;
+}
+.activeWrapper{
+  left: 100%;
 }

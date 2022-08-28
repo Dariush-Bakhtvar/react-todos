@@ -1,5 +1,13 @@
+@import '../../../asset/Sass/mixin';
+@import '../../../asset/Sass/variable';
+@import '../../../asset/Sass/component';
 .LeftOverlay{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @extend %OverlayPanel;
+  left: 0;
+ 
+button {
+  width:200px;
+  height: 40px;
+  border: 2px solid lightgreen;
+}
 }

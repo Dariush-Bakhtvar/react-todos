@@ -1,11 +1,13 @@
 @import '../../../asset/Sass/mixin';
 @import '../../../asset/Sass/variable';
+@import '../../../asset/Sass/component';
 .RightOverlay{
-width: 50%;
-height: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
+// width: 50%;
+// height: 100%;
+// display: flex;
+// justify-content: center;
+// align-items: center;
+@extend %OverlayPanel;
 button{
   width: 240px;
   height: 40px;
@@ -16,4 +18,15 @@ button{
   font-size: 1.8rem;
   font-family: 600;
 }
+}
+.Panel{
+  width: 60%;
+  height: 50%;
+  @include flex(space-around,center);
+  flex-direction: column;
+  transform: translateX(0);
+  transition: transform .6s ease-in-out;
+}
+.fadeIn{
+  transform: translateX(50%);
 }

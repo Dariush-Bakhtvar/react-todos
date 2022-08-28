@@ -4,9 +4,9 @@ import LeftOverlay from '../LeftOverlay/LeftOverlay';
 import style from './OverlayWrapper.module.scss';
 const OverlayWrapper = ({ isActive, setActive }) => {
   return (
-    <div className={style.OverlayWrapper}>
+    <div className={`${style.OverlayWrapper} ${isActive && style.activeWrapper}`}>
       <RightOverlay isActive={isActive} setActive={setActive} />
-      <LeftOverlay />
+      <LeftOverlay isActive={isActive} setActive={setActive} />
     </div>
   )
 }

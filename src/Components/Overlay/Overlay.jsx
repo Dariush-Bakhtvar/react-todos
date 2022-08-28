@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './Overlay.module.scss';
 import OverlayWrapper from './OverlayWrapper/OverlayWrapper';
-import withActive from '../Hoc/withActive';
+// import withActive from '../Hoc/withActive';
 const Overlay = ({ isActive, setActive }) => {
   return (
     <section className={`${style.Overlay} ${isActive && style.ActiveOverlay}`}>
@@ -10,4 +10,5 @@ const Overlay = ({ isActive, setActive }) => {
   )
 }
 
-export default withActive(Overlay);
+// export default withActive(Overlay);
+export default Overlay;

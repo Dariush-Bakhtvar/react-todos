@@ -1,7 +1,7 @@
 import style from './RightLayout.module.scss';
-const RightLayout = () => {
+const RightLayout = ({ isActive }) => {
   return (
-    <div className={style.RightLayout}>
+    <div className={`${style.RightLayout} ${isActive && style.fadeout}`}>
       Rigth layout
     </div>
   )
