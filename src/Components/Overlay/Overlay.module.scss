@@ -13,3 +13,14 @@
 .ActiveOverlay{
   transform: translateX(-100.2%);
 }
+@media screen and (min-width:320px) and (max-width:480px) {
+  .Overlay{
+    width: 100%;
+    height: 50%;
+    left: 0;
+    transform: translateY(0);
+  }
+  .ActiveOverlay{
+    transform: translateY(100%);
+  }
+}

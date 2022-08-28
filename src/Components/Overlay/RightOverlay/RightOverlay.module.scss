@@ -2,11 +2,6 @@
 @import '../../../asset/Sass/variable';
 @import '../../../asset/Sass/component';
 .RightOverlay{
-// width: 50%;
-// height: 100%;
-// display: flex;
-// justify-content: center;
-// align-items: center;
 @extend %OverlayPanel;
 button{
   width: 240px;
@@ -29,4 +24,18 @@ button{
 }
 .fadeIn{
   transform: translateX(50%);
+}
+@media screen and (min-width:320px) and (max-width:480px) {
+  .RightOverlay{
+    width: 100%;
+    height: 50%;
+  }
+  .Panel{
+    width: 100%;
+    transform: translateY(0%);
+    z-index: 1;
+  }
+  .fadeIn{
+  transform: translateY(-200%);
+}
 }
