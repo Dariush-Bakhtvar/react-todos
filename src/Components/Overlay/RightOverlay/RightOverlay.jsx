@@ -6,7 +6,7 @@ const RightOverlay = ({ isActive, setActive }) => {
     <div className={style.RightOverlay}>
       <div className={`${style.Panel} ${isActive && style.fadeIn}`}>
         <h1>سلام</h1>
-        <p>برنامه ی امروزت چیه؟ بریم کار هارو زمانبندی کنیم!؟</p>
+        <p>برنامه ی امروزت چیه! بریم کار هارو زمانبندی کنیم!؟</p>
         <button onClick={setActive}>بزن بریم </button>
       </div>
     </div>

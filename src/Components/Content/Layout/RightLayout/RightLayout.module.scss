@@ -1,10 +1,13 @@
+@import '../../../../asset/Sass/mixin';
+@import '../../../../asset/Sass/variable';
 .RightLayout{
+  @include flex(space-around,center);
+  flex-direction: column;
   width: 50%;
   height: 100%;
   position: absolute;
   right: 0;
   top: 0;
-  text-align: center;
   transform: translateX(-50%);
   opacity: 0;
   transition: all .6s ease-in-out;

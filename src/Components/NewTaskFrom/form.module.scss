@@ -1,0 +1,73 @@
+@import '../../asset/Sass/mixin';
+@import '../../asset/Sass/variable';
+.NewTaskFrom{
+  --green:#14AF6E;
+  --formcolor:#444;
+  width: 70%;
+  height: 80%;
+ @include flex(space-around,center);
+ flex-direction: column;
+ background-color: #fff;
+ color: var(--green);
+ border-radius:10px;
+padding: 0 10px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+ input[type="submit"]{
+   display: block;
+  width: 80%;
+  height: 40px;
+  background-color: var(--green);
+  color: #f2f2f2;
+  cursor: pointer;
+  border: none;
+  font-size: 1.8rem;
+  font-weight: 500;
+  border-radius: 4px;
+ }
+ .Datapicker{
+  width: 170px;
+ }
+}
+//title style
+.newTaskTitle{
+width: 100%;
+height: 50px;
+@include flex(center,center);
+color: #aaa;
+h2{
+  font-weight: 400;
+  margin-right: 10px;
+  
+}
+svg{
+  font-size: 20px;
+}
+
+}
+//input style
+.inputTask{
+   font-family: inherit;
+    width: 100%;
+    background: #f2f2f2;
+    color: var(--formcolor);
+    padding: 10px 4px;
+    border: unset;
+    border-radius: 3px;
+    &:focus{
+      outline: none;
+     border: 1px solid var(--green);
+     box-shadow: 0 0 3px var(--green);
+    }
+  &::placeholder{
+    color:#aaa;
+  }
+}
+.calendar{
+  width: 100%;
+  @include flex(flex-start,center);
+}
+.select{
+  width: 100%;
+  font-size: 1.5rem;
+  color: inherit;
+}

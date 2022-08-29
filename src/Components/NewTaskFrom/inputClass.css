@@ -1,0 +1,17 @@
+.rmdp-input {
+	--gree: #14af6e;
+	--bg-input: #f2f2f2;
+	border-radius: 4px;
+	padding: 4px 12px;
+	background-color: var(--bg-input);
+	height: 36px;
+	border: none;
+	font-family: inherit;
+	color: #444;
+}
+
+.rmdp-input:focus {
+	outline: none;
+	border: 1px solid var(--gree);
+	box-shadow: 0 0 6px var(--gree);
+}
