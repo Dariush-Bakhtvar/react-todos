@@ -4,3 +4,6 @@
   justify-content: $justify;
   align-items: $align;
 }
+@function strokeDashoffset($num) {
+    @return 440 - (440 * $num) / 100;
+}

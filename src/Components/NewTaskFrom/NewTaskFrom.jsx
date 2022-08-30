@@ -16,6 +16,8 @@ import "react-multi-date-picker/styles/layouts/prime.css"
 import "react-multi-date-picker/styles/layouts/mobile.css"
 import InputIcon from "react-multi-date-picker/components/input_icon"
 import './inputClass.css';
+import ProgressBar from '../ProgressBar/ProgressBar';
+//react-select option and style
 const Option = [
   { value: "Business", label: "کسب و کار", color: "#00c7c7" },
   { value: "Personal", label: "شخصی", color: "#F24C4C" },
@@ -35,6 +37,12 @@ const SelectInsideColor = {
   }),
   control: (base) => ({
     ...base,
+    border: '0 !important',
+    // This line disable the blue border
+    boxShadow: '0 !important',
+    '&:hover': {
+      border: '0 !important'
+    },
     height: 40,
     background: "#f2f2f2",
   }),
@@ -48,6 +56,9 @@ const NewTaskFrom = () => {
         <FiEdit />
         <h2>کار جدید</h2>
       </div>
+      <div className={style.selectIconTask}>
+        <ProgressBar cx={50} cy={50} r={25} isActive={true} />
+      </div>
       <Select
         className={style.select}
         // defaultValue={Option[0]}
@@ -57,9 +68,10 @@ const NewTaskFrom = () => {
           borderRadius: 4,
           colors: {
             ...theme.colors,
-            text: "silver",
+            text: "dodgerblue",
             primary25: "#dff9fb",
             primary: "#14AF6E",
+            neutral50: '#aaa',
           },
           spacing: {
             ...theme.spacing,

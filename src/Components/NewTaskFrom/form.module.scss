@@ -48,6 +48,7 @@ svg{
 .inputTask{
    font-family: inherit;
     width: 100%;
+    // background: #e5e5e5;
     background: #f2f2f2;
     color: var(--formcolor);
     padding: 10px 4px;
@@ -70,4 +71,12 @@ svg{
   width: 100%;
   font-size: 1.5rem;
   color: inherit;
+  &::placeholder{
+    color: #aaa;
+  }
 }
+// .selectIconTask{
+//   // position: absolute;
+//   // top: 0;
+//   // left: 0;
+// }
