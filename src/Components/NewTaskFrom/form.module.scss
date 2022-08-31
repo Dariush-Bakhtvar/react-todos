@@ -4,7 +4,7 @@
   --green:#14AF6E;
   --formcolor:#444;
   width: 70%;
-  height: 80%;
+  height: 95%;
  @include flex(space-around,center);
  flex-direction: column;
  background-color: #fff;
@@ -17,7 +17,7 @@ padding: 0 10px;
   width: 80%;
   height: 40px;
   background-color: var(--green);
-  color: #f2f2f2;
+  color: $bg-input;
   cursor: pointer;
   border: none;
   font-size: 1.8rem;
@@ -31,7 +31,7 @@ padding: 0 10px;
 //title style
 .newTaskTitle{
 width: 100%;
-height: 50px;
+height: 30px;
 @include flex(center,center);
 color: #aaa;
 h2{
@@ -49,7 +49,7 @@ svg{
    font-family: inherit;
     width: 100%;
     // background: #e5e5e5;
-    background: #f2f2f2;
+    background: $bg-input;
     color: var(--formcolor);
     padding: 10px 4px;
     border: unset;
@@ -75,8 +75,71 @@ svg{
     color: #aaa;
   }
 }
-// .selectIconTask{
-//   // position: absolute;
-//   // top: 0;
-//   // left: 0;
-// }
+.selectIconTask{
+position: relative;
+width:130px;
+height: 130px;
+@include flex(center,center);
+}
+.selectIconBtn{
+  width: 100px;
+  height: 100px;
+  background-color: $bg-input;
+  position: absolute;
+  transform: translate(0,0);
+  border-radius: 50%;
+  @include flex(center,center);
+  font-size: 3.5rem;
+  color:#aaa;
+  box-shadow: 1px 1px 2px #ddd,-1px -1px 2px #ddd;
+  cursor: pointer;
+}
+.activeBtn{
+  color:$color-secondry
+}
+.IconModal{
+  --shadow:#c9c6c6;
+  position:absolute;
+  width: 240px;
+  height: 230px;
+  @include flex(space-around,center);
+  flex-flow: row wrap;
+  background:$bg-input;
+  top: 100%;
+  box-shadow: 1px 1px 2px var(--shadow),-1px -1px 2px var(--shadow);
+  border-radius: 4px;
+  z-index: 1;
+}
+.BtnIcons{
+  width: 42px;
+  height: 42px;
+  font-size: 2.2rem;
+  @include flex(center,center);
+  cursor: pointer;
+  &:hover,&:active{
+    background: rgba($color: #000000, $alpha: 0.1);
+    transition: background .3s ease-in-out;
+    border-radius: 3px;
+  }
+}
+.editIcons{
+  position: absolute;
+  color: $bg-input;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+  span{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    font-size: 1.8rem;
+    background: rgba($color: #000000, $alpha: 0.5);
+    bottom: 5px;
+    right: 5px;
+    border-radius: 50%;
+    @include flex(center,center);
+
+}
+}

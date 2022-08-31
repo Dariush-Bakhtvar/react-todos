@@ -1,4 +1,5 @@
-import React from 'react'
+import { useState } from 'react'
+import withActive from "../Hoc/withActive"
 import Select from 'react-select';
 import { FiEdit } from 'react-icons/fi';
 import style from './form.module.scss';
@@ -17,6 +18,9 @@ import "react-multi-date-picker/styles/layouts/mobile.css"
 import InputIcon from "react-multi-date-picker/components/input_icon"
 import './inputClass.css';
 import ProgressBar from '../ProgressBar/ProgressBar';
+import { FaPlus } from "react-icons/fa";
+import { RiImageEditFill } from 'react-icons/ri'
+import GetIcons from '../GetIcons/GetIcons';
 //react-select option and style
 const Option = [
   { value: "Business", label: "کسب و کار", color: "#00c7c7" },
@@ -47,18 +51,70 @@ const SelectInsideColor = {
     background: "#f2f2f2",
   }),
 };
-
-const NewTaskFrom = () => {
-
+//icon name for btn list
+const Icons = [
+  "FaRocketchat",
+  "FaHighlighter",
+  "FaMapMarkedAlt",
+  "FaPrint",
+  "FaEnvelope",
+  "FaCar",
+  "FaUserFriends",
+  "FaCameraRetro",
+  "FaVideo",
+  "FaBriefcase",
+  "FaCalculator",
+  "FaHeart",
+  "FaHeadphones",
+  "FaBuilding",
+  "FaShopify",
+  "FaCartArrowDown",
+  "FaShoppingCart",
+  "FaWrench",
+  "FaTree",
+  "FaDollarSign",
+];
+const NewTaskFrom = ({ isActive, setActive }) => {
+  const [icon, setIcons] = useState("");
+  const [isHover, setIsHover] = useState(false);
+  const checkIconStatus = (iconsName) => {
+    if (icon) {
+      setIcons(iconsName);
+      setIsHover(false);
+    } else {
+      setIcons(iconsName);
+      setActive();
+      setIsHover(false);
+    }
+  }
+  const showIconGroup = () => {
+    return Icons.map((icon, index) => {
+      return <li key={index} className={style.BtnIcons}
+        onClick={() => checkIconStatus(icon)}>
+        <GetIcons name={icon} />
+      </li>
+    })
+  }
   return (
     <form action="" className={style.NewTaskFrom}>
       <div className={style.newTaskTitle}>
         <FiEdit />
         <h2>کار جدید</h2>
       </div>
-      <div className={style.selectIconTask}>
-        <ProgressBar cx={50} cy={50} r={25} isActive={true} />
-      </div>
+      <section className={style.selectIconTask}>
+        <ProgressBar cx={0} cy={0} r={50} isActive={isActive} />
+        <div className={`${style.selectIconBtn} ${isActive && style.activeBtn}`} onClick={() => setIsHover(!isHover)}>
+          {icon ? <GetIcons name={`${icon}`} /> : <FaPlus />}
+        </div>
+        {icon && <div className={style.editIcons} onClick={() => setIsHover(!isHover)}>
+          <span>
+            <RiImageEditFill />
+          </span>
+        </div>}
+        {isHover && <ul className={`${style.IconModal}`}>
+          {showIconGroup()}
+        </ul>}
+      </section>
       <Select
         className={style.select}
         // defaultValue={Option[0]}
@@ -103,4 +159,4 @@ const NewTaskFrom = () => {
   )
 }
 
-export default NewTaskFrom
+export default withActive(NewTaskFrom)
