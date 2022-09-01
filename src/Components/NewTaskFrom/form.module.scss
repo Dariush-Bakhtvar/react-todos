@@ -143,3 +143,9 @@ height: 130px;
 
 }
 }
+@media screen and (min-width:$mobile-Xs) and (max-width:$mobile-S) {
+  .NewTaskFrom{
+    width: 75%;
+    height: 90%;
+  }
+}

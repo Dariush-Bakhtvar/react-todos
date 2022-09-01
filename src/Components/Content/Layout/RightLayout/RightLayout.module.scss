@@ -25,3 +25,9 @@
     opacity: 1;
   }
 }
+@media screen and (min-width:$mobile-Xs) and (max-width:$mobile-S) {
+  .RightLayout{
+    width: 100%;
+    height: 50%;
+  }
+}

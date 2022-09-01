@@ -51,6 +51,7 @@ const SelectInsideColor = {
     background: "#f2f2f2",
   }),
 };
+// const selectStyle = [];
 //icon name for btn list
 const Icons = [
   "FaRocketchat",
@@ -106,14 +107,20 @@ const NewTaskFrom = ({ isActive, setActive }) => {
         <div className={`${style.selectIconBtn} ${isActive && style.activeBtn}`} onClick={() => setIsHover(!isHover)}>
           {icon ? <GetIcons name={`${icon}`} /> : <FaPlus />}
         </div>
-        {icon && <div className={style.editIcons} onClick={() => setIsHover(!isHover)}>
-          <span>
-            <RiImageEditFill />
-          </span>
-        </div>}
-        {isHover && <ul className={`${style.IconModal}`}>
-          {showIconGroup()}
-        </ul>}
+        {
+          icon &&
+          <div className={style.editIcons} onClick={() => setIsHover(!isHover)}>
+            <span>
+              <RiImageEditFill />
+            </span>
+          </div>
+        }
+        {
+          isHover &&
+          <ul className={`${style.IconModal}`}>
+            {showIconGroup()}
+          </ul>
+        }
       </section>
       <Select
         className={style.select}
