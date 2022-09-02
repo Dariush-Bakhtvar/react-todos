@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import withActive from "../Hoc/withActive"
 import Select from 'react-select';
 import { FiEdit } from 'react-icons/fi';
@@ -35,6 +35,13 @@ const colorMap = {
   Work: "#F3C623",
 };
 const SelectInsideColor = {
+  container: (styles) => ({
+    ...styles,
+    "@media only screen and (min-width: 320px) and (max-width:480px)": {
+      ...styles["@media only screen and(min-width: 320px) and (max-width:480px)"],
+      height: 20
+    },
+  }),
   singleValue: (provided, { data }) => ({
     ...provided,
     color: colorMap[data.value] ? colorMap[data.value] : "defaultColor",
@@ -49,6 +56,10 @@ const SelectInsideColor = {
     },
     height: 40,
     background: "#f2f2f2",
+    "@media only screen and (min-width: 320px) and (max-width:480px)": {
+      ...base["@media only screen and(min-width: 320px) and (max-width:480px)"],
+      height: 20
+    },
   }),
 };
 // const selectStyle = [];
@@ -78,6 +89,14 @@ const Icons = [
 const NewTaskFrom = ({ isActive, setActive }) => {
   const [icon, setIcons] = useState("");
   const [isHover, setIsHover] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  //check screen size
+  const checkScreenSize = () => {
+    return window.innerWidth < 720 ? setIsMobile(true) : setIsMobile(false);
+  }
+  useEffect(() => {
+    window.addEventListener("resize", checkScreenSize);
+  })
   const checkIconStatus = (iconsName) => {
     if (icon) {
       setIcons(iconsName);
@@ -103,7 +122,7 @@ const NewTaskFrom = ({ isActive, setActive }) => {
         <h2>کار جدید</h2>
       </div>
       <section className={style.selectIconTask}>
-        <ProgressBar cx={0} cy={0} r={50} isActive={isActive} />
+        <ProgressBar cx={0} cy={0} r={`${isMobile ? '20' : '50'}`} isActive={isActive} />
         <div className={`${style.selectIconBtn} ${isActive && style.activeBtn}`} onClick={() => setIsHover(!isHover)}>
           {icon ? <GetIcons name={`${icon}`} /> : <FaPlus />}
         </div>
@@ -150,7 +169,7 @@ const NewTaskFrom = ({ isActive, setActive }) => {
       <input className={style.inputTask} type="text" placeholder='کجا؟ *' />
       <div className={style.calendar}>
         <DatePicker
-          className={`teal ${style.rmdp_input}`}
+          className={`teal ${style.rmdp_input} ${isMobile && 'rmdp-mobile'}`}
           render={<InputIcon />}
           calendar={persian}
           locale={persian_fa}
