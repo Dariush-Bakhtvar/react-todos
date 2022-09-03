@@ -39,7 +39,8 @@ const SelectInsideColor = {
     ...styles,
     "@media only screen and (min-width: 320px) and (max-width:480px)": {
       ...styles["@media only screen and(min-width: 320px) and (max-width:480px)"],
-      height: 20
+      height: 16,
+      marginBottom: 14,
     },
   }),
   singleValue: (provided, { data }) => ({
@@ -58,7 +59,8 @@ const SelectInsideColor = {
     background: "#f2f2f2",
     "@media only screen and (min-width: 320px) and (max-width:480px)": {
       ...base["@media only screen and(min-width: 320px) and (max-width:480px)"],
-      height: 20
+      height: 16,
+      marginBottom: 14,
     },
   }),
 };
@@ -122,7 +124,7 @@ const NewTaskFrom = ({ isActive, setActive }) => {
         <h2>کار جدید</h2>
       </div>
       <section className={style.selectIconTask}>
-        <ProgressBar cx={0} cy={0} r={`${isMobile ? '20' : '50'}`} isActive={isActive} />
+        <ProgressBar cx={0} cy={0} r={`${isMobile ? '25' : '50'}`} isActive={isActive} />
         <div className={`${style.selectIconBtn} ${isActive && style.activeBtn}`} onClick={() => setIsHover(!isHover)}>
           {icon ? <GetIcons name={`${icon}`} /> : <FaPlus />}
         </div>

@@ -24,7 +24,7 @@ $porcent-vue: 100;
             stroke-linecap: round;
             transform: translate(50%, 50%);
 }
-.Pogress_forward {
+.Progress_forward {
     animation: anim_circle-vue 1s ease-in-out forwards;
 }
 
@@ -48,7 +48,12 @@ $porcent-vue: 100;
 }
 @media screen and (min-width:$mobile-Xs) and (max-width:$mobile-S) {
   .progressWrapper{
-    width: 100%;
-    height: 100%;
+    width: 64px;
+    height: 64px;
   }
+  .ProgressBarCircle{
+    position: absolute;
+    transform: translate(50%,50%);
+  }
+ 
 }

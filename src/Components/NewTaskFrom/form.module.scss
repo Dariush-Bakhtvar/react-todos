@@ -33,14 +33,16 @@ padding: 0 10px;
 width: 100%;
 height: 30px;
 @include flex(center,center);
-color: #aaa;
+flex-direction: row-reverse;
+color: $color-secondry;
 h2{
   font-weight: 400;
-  margin-right: 10px;
-  
+  margin-left: 10px;
+  font-size: 2.6rem;
+  align-self: flex-start;
 }
 svg{
-  font-size: 20px;
+  font-size: 28px;
 }
 
 }
@@ -144,11 +146,14 @@ height: 130px;
 }
 @media screen and (min-width:$mobile-Xs) and (max-width:$mobile-S) {
   .NewTaskFrom{
-    width: 80%;
-    height: 90%;
+    width: 90%;
+    height: 94%;
     input[type="submit"]{
       width: 50%;
-      height: 25px;
+      height: 20px;
+      font-weight: 600;
+      font-size: 1.4rem;
+    border-radius: 2px;
     }
   }
   .newTaskTitle{
@@ -158,20 +163,39 @@ height: 130px;
     svg{
       font-size: 14px;
     }
+    display: none;
   }
   .inputTask{
     padding: 4px 4px;
+    font-size: 1.3rem;
+     &::placeholder{
+        font-size: 1.2rem;
+  }
   }
   .select{
      font-size: 1.2rem;
   }
   .selectIconTask{
-    width: 50px;
-    height: 50px;
+    width: 64px;
+    height: 64px;
   }
   .selectIconBtn{
-    width: 100%;
-    height: 100%;
+    width: 50px;
+    height: 50px;
     font-size: 1.5rem;
+  }
+  .IconModal{
+    top: 28%;
+    transform:scale(0.6);
+
+  }
+  .editIcons {
+    span{
+      width: 18px;
+      height: 18px;
+      font-size: 1.2rem;
+      right: 0;
+      bottom: -3px;
+    }
   }
 }

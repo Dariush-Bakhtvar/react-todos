@@ -1,3 +1,6 @@
+@import '../../../../asset/Sass/mixin';
+@import '../../../../asset/Sass/variable';
+@import '../../../../asset/Sass/component';
 .LeftLayout{
   width: 50%;
   height: 100%;
@@ -20,5 +23,13 @@
   }
   50%,100%{
     opacity: 0;
+  }
+}
+@media screen and (min-width:$mobile-Xs) and (max-width:$mobile-S){
+  .LeftLayout{
+    transform: translateY(0);
+  }
+  .fadeout{
+    transform: translateY(50%);
   }
 }
