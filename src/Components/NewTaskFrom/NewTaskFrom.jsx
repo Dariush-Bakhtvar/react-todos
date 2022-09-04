@@ -1,5 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import withActive from "../Hoc/withActive"
+import ProgressBar from '../ProgressBar/ProgressBar';
+import { useTodosAction } from '../Provider/TodoProvider';
 import Select from 'react-select';
 import { FiEdit } from 'react-icons/fi';
 import style from './form.module.scss';
@@ -16,8 +20,8 @@ import "react-multi-date-picker/styles/colors/teal.css"
 import "react-multi-date-picker/styles/layouts/prime.css"
 import "react-multi-date-picker/styles/layouts/mobile.css"
 import InputIcon from "react-multi-date-picker/components/input_icon"
+//datapicker  custom style class
 import './inputClass.css';
-import ProgressBar from '../ProgressBar/ProgressBar';
 import { FaPlus } from "react-icons/fa";
 import { RiImageEditFill } from 'react-icons/ri'
 import GetIcons from '../GetIcons/GetIcons';
@@ -92,6 +96,11 @@ const NewTaskFrom = ({ isActive, setActive }) => {
   const [icon, setIcons] = useState("");
   const [isHover, setIsHover] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [selectTask, setSelectTask] = useState("");
+  const [date, setDate] = useState("");
+  const inputWhatDo = useRef();
+  const inputWhereDo = useRef();
+  const dispatch = useTodosAction();
   //check screen size
   const checkScreenSize = () => {
     return window.innerWidth < 720 ? setIsMobile(true) : setIsMobile(false);
@@ -99,6 +108,7 @@ const NewTaskFrom = ({ isActive, setActive }) => {
   useEffect(() => {
     window.addEventListener("resize", checkScreenSize);
   })
+  // check state icone?
   const checkIconStatus = (iconsName) => {
     if (icon) {
       setIcons(iconsName);
@@ -109,6 +119,7 @@ const NewTaskFrom = ({ isActive, setActive }) => {
       setIsHover(false);
     }
   }
+  //show modal element
   const showIconGroup = () => {
     return Icons.map((icon, index) => {
       return <li key={index} className={style.BtnIcons}
@@ -117,8 +128,39 @@ const NewTaskFrom = ({ isActive, setActive }) => {
       </li>
     })
   }
+  //set react-select value
+  const selectHandler = (e) => {
+    setSelectTask(e.value);
+  }
+  //set Date
+  const dateHandler = (e) => {
+    setDate(e);
+  }
+  //set new task
+  const CreateNewTask = (e) => {
+    e.preventDefault();
+    const WhatDo = inputWhatDo.current.value;
+    const WhereDo = inputWhereDo.current.value;
+    const toastProperty = {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    }
+    // console.log(date.format().toString().split(" "));
+    const success = () => toast.success('کار جدید با موقیت ایجاد شد!', toastProperty);
+    const unsuccess = () => toast.error('فیلد های خالی را پر کنید', toastProperty);
+    if (!WhatDo || !WhereDo) {
+      unsuccess()
+    } else {
+      success();
+    }
+  }
   return (
-    <form action="" className={style.NewTaskFrom}>
+    <form action='#' className={style.NewTaskFrom} onSubmit={CreateNewTask}>
       <div className={style.newTaskTitle}>
         <FiEdit />
         <h2>کار جدید</h2>
@@ -143,8 +185,7 @@ const NewTaskFrom = ({ isActive, setActive }) => {
           </ul>
         }
       </section>
-      <Select
-        className={style.select}
+      <Select className={style.select}
         // defaultValue={Option[0]}
         options={Option}
         theme={(theme) => ({
@@ -164,25 +205,39 @@ const NewTaskFrom = ({ isActive, setActive }) => {
           },
         })}
         styles={SelectInsideColor}
-        // onChange={}
+        onChange={selectHandler}
         placeholder="دسته بندی ..."
       />
-      <input className={style.inputTask} type="text" placeholder='چه کاری را باید انجام بدم؟ *' />
-      <input className={style.inputTask} type="text" placeholder='کجا؟ *' />
+      <input className={style.inputTask} type="text" placeholder='چه کاری را باید انجام بدم؟ *' ref={inputWhatDo} />
+      <input className={style.inputTask} type="text" placeholder='کجا؟ *' ref={inputWhereDo} />
       <div className={style.calendar}>
-        <DatePicker
-          className={`teal ${style.rmdp_input} ${isMobile && 'rmdp-mobile'}`}
-          render={<InputIcon />}
+        <DatePicker className={`teal ${style.rmdp_input} ${isMobile && 'rmdp-mobile'}`}
+          value={date}
+          onChange={dateHandler}
+          format="D MMMM YYYY HH:mm:ss"
           calendar={persian}
           locale={persian_fa}
           plugins={[<TimePicker position="bottom" />]}
-          animations={[opacity(), transition({ from: 35, duration: 800 })]}
           calendarPosition="bottom-right"
-          format="D MMMM YYYY HH:mm:ss"
+          render={<InputIcon />}
+          animations={[opacity(), transition({ from: 35, duration: 800 })]}
           placeholder='چه موقع؟ *'
         />
       </div>
       <input type="submit" value="ایجاد" />
+      <ToastContainer
+        position={window.innerWidth > 720 ? "top-right" : "top-center"}
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        toastStyle={{ backgroundColor: "#333748", color: "#f2f2f2", fontFamily: "'Shabnam', sans- serif", width: window.innerWidth < 720 && '90%' }}
+        theme="dark"
+      />
     </form>
   )
 }
