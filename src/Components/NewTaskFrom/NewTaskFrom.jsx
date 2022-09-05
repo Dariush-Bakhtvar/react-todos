@@ -100,6 +100,7 @@ const NewTaskFrom = ({ isActive, setActive }) => {
   const [date, setDate] = useState("");
   const inputWhatDo = useRef();
   const inputWhereDo = useRef();
+  const selectRef = useRef();
   const dispatch = useTodosAction();
   //check screen size
   const checkScreenSize = () => {
@@ -131,6 +132,8 @@ const NewTaskFrom = ({ isActive, setActive }) => {
   //set react-select value
   const selectHandler = (e) => {
     setSelectTask(e.value);
+    // console.log();
+    console.log(selectRef.current);
   }
   //set Date
   const dateHandler = (e) => {
@@ -139,8 +142,6 @@ const NewTaskFrom = ({ isActive, setActive }) => {
   //set new task
   const CreateNewTask = (e) => {
     e.preventDefault();
-    const WhatDo = inputWhatDo.current.value;
-    const WhereDo = inputWhereDo.current.value;
     const toastProperty = {
       position: "top-right",
       autoClose: 5000,
@@ -150,12 +151,24 @@ const NewTaskFrom = ({ isActive, setActive }) => {
       draggable: true,
       progress: undefined,
     }
-    // console.log(date.format().toString().split(" "));
+    const WhatDo = inputWhatDo.current.value;
+    const WhereDo = inputWhereDo.current.value;
+    const WhenDo = date.format().toString().split(" ");
     const success = () => toast.success('کار جدید با موقیت ایجاد شد!', toastProperty);
     const unsuccess = () => toast.error('فیلد های خالی را پر کنید', toastProperty);
-    if (!WhatDo || !WhereDo) {
-      unsuccess()
+    const checkFild = !WhatDo || !WhereDo || !selectTask || !WhenDo;
+    if (checkFild) {
+      unsuccess();
+      return;
     } else {
+      dispatch({ type: 'newTask', WhatDo, WhereDo, WhenDo, selectTask, icon });
+      setIcons("");
+      setSelectTask("");
+      setDate("");
+      inputWhatDo.current.value = "";
+      inputWhereDo.current.value = ""
+      selectRef.current.state.selectValue = [];
+      setActive();
       success();
     }
   }
@@ -186,7 +199,7 @@ const NewTaskFrom = ({ isActive, setActive }) => {
         }
       </section>
       <Select className={style.select}
-        // defaultValue={Option[0]}
+        defaultValue={Option[0]}
         options={Option}
         theme={(theme) => ({
           ...theme,
@@ -207,6 +220,8 @@ const NewTaskFrom = ({ isActive, setActive }) => {
         styles={SelectInsideColor}
         onChange={selectHandler}
         placeholder="دسته بندی ..."
+        // value={selectTask}
+        ref={selectRef}
       />
       <input className={style.inputTask} type="text" placeholder='چه کاری را باید انجام بدم؟ *' ref={inputWhatDo} />
       <input className={style.inputTask} type="text" placeholder='کجا؟ *' ref={inputWhereDo} />
