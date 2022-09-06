@@ -1,13 +1,13 @@
-import React from 'react'
+import Search from '../../../Search_Filter/Search';
 import style from './LeftLayout.module.scss';
 const LeftLayout = ({ isActive }) => {
   return (
-    <div className={`${style.LeftLayout} ${isActive && style.fadeout}`}>
+    <section className={`${style.LeftLayout} ${isActive && style.fadeout}`}>
       <div className={style.leftWrapper}>
-        test
-        <h1>سلام</h1>
+        <Search />
+        <div>tasks</div>
       </div>
-    </div>
+    </section>
   )
 }
 

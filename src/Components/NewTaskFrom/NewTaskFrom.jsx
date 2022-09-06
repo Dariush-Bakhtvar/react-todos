@@ -132,14 +132,12 @@ const NewTaskFrom = ({ isActive, setActive }) => {
   //set react-select value
   const selectHandler = (e) => {
     setSelectTask(e.value);
-    // console.log();
-    console.log(selectRef.current);
   }
-  //set Date
+  //set Date in date hook
   const dateHandler = (e) => {
     setDate(e);
   }
-  //set new task
+  //set new task =>create new task
   const CreateNewTask = (e) => {
     e.preventDefault();
     const toastProperty = {
@@ -199,8 +197,11 @@ const NewTaskFrom = ({ isActive, setActive }) => {
         }
       </section>
       <Select className={style.select}
-        defaultValue={Option[0]}
         options={Option}
+        onChange={selectHandler}
+        ref={selectRef}
+        placeholder="دسته بندی ..."
+        styles={SelectInsideColor}
         theme={(theme) => ({
           ...theme,
           borderRadius: 4,
@@ -217,11 +218,6 @@ const NewTaskFrom = ({ isActive, setActive }) => {
             baseUnit: 2,
           },
         })}
-        styles={SelectInsideColor}
-        onChange={selectHandler}
-        placeholder="دسته بندی ..."
-        // value={selectTask}
-        ref={selectRef}
       />
       <input className={style.inputTask} type="text" placeholder='چه کاری را باید انجام بدم؟ *' ref={inputWhatDo} />
       <input className={style.inputTask} type="text" placeholder='کجا؟ *' ref={inputWhereDo} />
@@ -242,7 +238,7 @@ const NewTaskFrom = ({ isActive, setActive }) => {
       <input type="submit" value="ایجاد" />
       <ToastContainer
         position={window.innerWidth > 720 ? "top-right" : "top-center"}
-        autoClose={5000}
+        autoClose={2000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick

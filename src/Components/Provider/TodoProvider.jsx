@@ -13,9 +13,9 @@ const reducer = (state, action) => {
       const task = {
         id: new Date().valueOf(),
         icon: action.icon,
-        tasktype: action.selectTask,
-        whatdo: action.WhatDo,
-        wheredo: action.WhereDo,
+        taskType: action.selectTask,
+        whatDo: action.WhatDo,
+        whereDo: action.WhereDo,
         date: {
           day: action.WhenDo[0],
           month: action.WhenDo[1],
@@ -26,7 +26,7 @@ const reducer = (state, action) => {
       }
       return [...cloneTasks, task];
     case 'removeTask':
-      const RemoveTask = state.filter(task => task.is !== action.id);
+      const RemoveTask = state.filter(task => task.id !== action.id);
       return RemoveTask;
     case 'compeleteTask':
       cloneTask.isCompelete = !cloneTask.isCompelete;
