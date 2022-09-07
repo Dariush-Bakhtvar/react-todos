@@ -51,6 +51,7 @@ border: $nav-border;
 box-shadow: 0 0 2px #191b22;
  @include flex(space-around,center);
 flex-direction: column;
+z-index: 2;
 li{
   width: 100%;
     @include flex(flex-start,center);

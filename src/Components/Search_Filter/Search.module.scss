@@ -5,3 +5,113 @@
   height: 60px;
   @include flex(space-between,center);
 }
+.searchBox{	
+  position: relative;
+  padding-right: 5%;
+	input[type="text"] {
+		border: none;
+		background: none;
+		z-index: 1;
+		width: 30px;
+		height: 30px;
+		transition: all .25s ease-in .25s;
+		color: transparent;
+		font-size: 1.2rem;
+		line-height:30px;
+    font-family: inherit;
+    &::placeholder{
+      opacity: 0;
+      transition: opacity .3s ease-in .25s;
+      color: $bg-input;
+    }
+		&:hover {
+			cursor: pointer;
+			&:focus {
+				cursor: text;
+			}
+			+ span {
+				background: rgba(255,255,255,0.2);
+			}
+		}
+		&:focus {
+			width: 200px;
+			padding: 0 10px;
+			outline: none;
+			color: black;
+			background:none;
+			color: white;
+      &::placeholder{
+       opacity: 1;
+      }
+			+ span {
+				width: 200px;
+				&::before {
+					width:2px;
+					opacity: 0;
+					transition: all .25s ease-in;
+				}
+			}
+		}
+		+ span {
+			z-index: -1;
+			position: absolute;
+			border: 2px solid white;
+			top: 0;
+			width: 30px;
+			height: 30px;
+			transition: all .25s ease-in .25s;
+			border-radius: 25px;
+			left: 0;
+			&::before {
+				transition: all .25s ease-in .5s;
+				transform-origin: left top;
+				content: '';
+				position: absolute;
+				width: 10px;
+				height: 5px;
+				border-radius: 5px;
+				background: white;
+				transform: rotate(45deg) translate(29px, -2px);
+			}
+		}
+	}
+}
+.manageTask{
+  width: 150px;
+  height: 32px;
+  background: rgba($color: $bg-primary, $alpha: 0.2);
+  border-radius: 4px;
+  margin-left: 5%;
+  cursor: pointer;
+  font-size: 1.4rem;
+ & li:first-child{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  @include flex(space-between,center);
+  padding: 0 4px;
+  svg{
+    font-size: 2.2rem;
+  }
+ }
+ .subMenu{
+  position: absolute;
+  top: 34px;
+  right:0;
+  width:100%;
+  height: 85px;
+  background: rgba($color: $bg-primary, $alpha: 0.2);
+  @include flex(space-around,center);
+  flex-direction: column;
+  padding: 3px;
+  li{
+    width: 100%;
+    height: 32px;
+    @include flex(space-between,center);
+    svg{
+      font-size: 1.4rem;
+    }
+  }
+}
+}
+

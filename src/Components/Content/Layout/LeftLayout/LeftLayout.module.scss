@@ -11,11 +11,13 @@
   transform: translateX(0);
   opacity: 1;
   transition: all .6s ease-in-out;
+  z-index: 1;
 }
 .fadeout{
   transform: translateX(50%);
   animation: Fade .6s ease-in-out;
   opacity: 0;
+  z-index: -1;
 }
 @keyframes Fade{
   0%,49%{
