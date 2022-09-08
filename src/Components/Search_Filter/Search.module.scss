@@ -9,6 +9,7 @@
   position: relative;
   padding-right: 5%;
 	input[type="text"] {
+    color: $color-primary;
 		border: none;
 		background: none;
 		z-index: 1;
@@ -22,7 +23,7 @@
     &::placeholder{
       opacity: 0;
       transition: opacity .3s ease-in .25s;
-      color: $bg-input;
+      color: inherit;
     }
 		&:hover {
 			cursor: pointer;
@@ -30,16 +31,15 @@
 				cursor: text;
 			}
 			+ span {
-				background: rgba(255,255,255,0.2);
+				background:rgba($color: $bg-primary, $alpha: 0.35)
 			}
 		}
 		&:focus {
 			width: 200px;
 			padding: 0 10px;
 			outline: none;
-			color: black;
 			background:none;
-			color: white;
+			color:$color-primary;
       &::placeholder{
        opacity: 1;
       }
@@ -55,13 +55,14 @@
 		+ span {
 			z-index: -1;
 			position: absolute;
-			border: 2px solid white;
+			border: 2px solid $color-primary;
 			top: 0;
 			width: 30px;
 			height: 30px;
 			transition: all .25s ease-in .25s;
 			border-radius: 25px;
 			left: 0;
+      background: rgba($color: $bg-primary, $alpha: 0.35);
 			&::before {
 				transition: all .25s ease-in .5s;
 				transform-origin: left top;
@@ -70,7 +71,7 @@
 				width: 10px;
 				height: 5px;
 				border-radius: 5px;
-				background: white;
+				background: $color-primary;
 				transform: rotate(45deg) translate(29px, -2px);
 			}
 		}
