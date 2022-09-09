@@ -1,9 +1,15 @@
 @import '../../asset/Sass/variable';
 @import '../../asset/Sass/mixin';
 .searchWrapper{
+  --bg-gradiant2:#24C286;
   width:100%;
   height: 60px;
   @include flex(space-between,center);
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  background:linear-gradient(to right,$bg-GrandiantOne,var(--bg-gradiant2));
+  z-index: 3;
 }
 .searchBox{	
   position: relative;
@@ -80,7 +86,7 @@
 .manageTask{
   width: 150px;
   height: 32px;
-  background: rgba($color: $bg-primary, $alpha: 0.2);
+  background: rgba($color: $bg-primary, $alpha: 0.6);
   border-radius: 4px;
   margin-left: 5%;
   cursor: pointer;
@@ -101,7 +107,7 @@
   right:0;
   width:100%;
   height: 85px;
-  background: rgba($color: $bg-primary, $alpha: 0.2);
+  background: rgba($color: $bg-primary, $alpha: 0.6);
   @include flex(space-around,center);
   flex-direction: column;
   padding: 3px;

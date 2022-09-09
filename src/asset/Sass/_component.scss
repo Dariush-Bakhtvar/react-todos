@@ -8,9 +8,13 @@
   @include flex(space-around,center);
   flex-direction: column;
 }
-.css-1s2u09g-control{
-  background: #ffffff4f;
-  &:hover{
-    border-color: #ffffff4f;
-  }
+%calendar{
+  width: 100%;
+  @include flex(flex-start,center);
 }
+// .css-1s2u09g-control{
+//   background: #ffffff4f;
+//   &:hover{
+//     border-color: #ffffff4f;
+//   }
+// }

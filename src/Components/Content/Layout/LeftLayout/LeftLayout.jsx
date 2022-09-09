@@ -1,12 +1,12 @@
-import Search from '../../../Search_Filter/Search';
-import Task from '../../../Task/Task';
+import Search from '../../../Search/Search';
+import TaskList from '../../../TaskList/TaskList';
 import style from './LeftLayout.module.scss';
 const LeftLayout = ({ isActive }) => {
   return (
     <section className={`${style.LeftLayout} ${isActive && style.fadeout}`}>
       <div className={style.leftWrapper}>
         <Search />
-        <Task />
+        <TaskList />
       </div>
     </section>
   )
