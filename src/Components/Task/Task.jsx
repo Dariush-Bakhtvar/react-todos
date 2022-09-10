@@ -14,6 +14,7 @@ import { BsBookmarkStarFill } from 'react-icons/bs';
 import EditTask from '../EditTask/EditTask';
 const Task = ({ isActive, setActive, Task }) => {
   const [isModal, setIsModal] = useState(false);
+
   const checkTaskTyep = () => {
     switch (Task.taskType) {
       case "Business":
@@ -31,7 +32,7 @@ const Task = ({ isActive, setActive, Task }) => {
   return (
     <section className={style.task}>
       <div className={style.taskIcon}>
-        <ProgressBar cx={0} cy={0} r={40} isActive={true} />
+        <ProgressBar cx={0} cy={0} r={window.innerWidth > 720 ? 40 : 25} isActive={true} />
         <span className={style.icon}>
           <GetIcons name={Task.icon} />
         </span>
