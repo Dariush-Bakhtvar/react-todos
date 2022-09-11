@@ -15,3 +15,12 @@ padding-top: 80px;
       width: 0;
     }
 }
+.noTodyTask{
+  position: absolute;
+  transform: translate(0,100%);
+font-size: 5rem;
+color: rgba($color: #fff, $alpha: 0.8);
+p{
+  font-size: 1.3rem;
+}
+}

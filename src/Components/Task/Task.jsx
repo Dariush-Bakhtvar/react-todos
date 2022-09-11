@@ -5,16 +5,16 @@ import GetIcons from '../GetIcons/GetIcons'
 import style from './Task.module.scss';
 import { CSSTransition } from 'react-transition-group';
 import '../../asset/Sass/modal.scss';
-import { MdMoreVert, MdEditNote, MdOutlineEditLocationAlt, MdNotListedLocation } from 'react-icons/md';
-import { IoIosTrash } from 'react-icons/io';
-import { IoCheckmarkCircleSharp } from 'react-icons/io5';
+import { MdEditNote, MdOutlineEditLocationAlt, MdNotListedLocation } from 'react-icons/md';
+import { IoIosTrash, IoIosCheckmarkCircle } from 'react-icons/io';
+// import { IoCheckmarkCircleSharp } from 'react-icons/io5';
 import { TiTimes } from 'react-icons/ti';
 import { GoCalendar } from 'react-icons/go';
-import { BsBookmarkStarFill } from 'react-icons/bs';
+import { GiPlainCircle } from 'react-icons/gi';
+// import { BsCheckCircleFill } from 'react-icons/bs';
 import EditTask from '../EditTask/EditTask';
-const Task = ({ isActive, setActive, Task }) => {
-  const [isModal, setIsModal] = useState(false);
-
+const Task = ({ isActive, setActive, Task, OnRemove, OnDone }) => {
+  const [isCompelete, setIsCompelete] = useState(false);
   const checkTaskTyep = () => {
     switch (Task.taskType) {
       case "Business":
@@ -32,7 +32,7 @@ const Task = ({ isActive, setActive, Task }) => {
   return (
     <section className={style.task}>
       <div className={style.taskIcon}>
-        <ProgressBar cx={0} cy={0} r={window.innerWidth > 720 ? 40 : 25} isActive={true} />
+        <ProgressBar cx={0} cy={0} r={window.innerWidth > 720 ? 40 : 25} isActive={isCompelete} />
         <span className={style.icon}>
           <GetIcons name={Task.icon} />
         </span>
@@ -40,11 +40,11 @@ const Task = ({ isActive, setActive, Task }) => {
       <div className={style.taskDetail}>
         <div className={style.Whatdo}>
           <MdOutlineEditLocationAlt />
-          <p>{Task.whatDo}</p>
+          <p>{isCompelete ? <del>{Task.whatDo}</del> : Task.whatDo}</p>
         </div>
         <div className={style.wheredo}>
           <MdNotListedLocation />
-          <p>{Task.whereDo}</p>
+          <p>{isCompelete ? <del>{Task.whereDo}</del> : Task.whereDo}</p>
         </div>
         <p>
           <span>
@@ -52,34 +52,25 @@ const Task = ({ isActive, setActive, Task }) => {
             <GoCalendar />
           </span>
           <span className={checkTaskTyep()}>
-            <BsBookmarkStarFill />
+            <GiPlainCircle />
           </span>
         </p>
       </div>
       <div className={style.taskControll}>
-        <div className={style.mangeBtn} onClick={setActive}>
-          <MdMoreVert />
-        </div>
-        <CSSTransition classNames="modal" timeout={600} in={isActive} unmountOnExit>
-          <div className={style.Menu}>
-            <p>
-              <span>حذف</span>
-              <IoIosTrash />
-            </p>
-            <p>
-              <span>انجام</span>
-              <IoCheckmarkCircleSharp />
-            </p>
-          </div>
-        </CSSTransition>
-        <div className={style.editBtn} onClick={() => setIsModal(!isModal)}>
+        <span onClick={OnRemove}>
+          <IoIosTrash />
+        </span>
+        <span onClick={() => { OnDone(); setIsCompelete(!isCompelete) }}>
+          <IoIosCheckmarkCircle />
+        </span>
+        <div className={style.editBtn} onClick={setActive}>
           <MdEditNote />
         </div>
-        <CSSTransition classNames="modal" timeout={600} in={isModal} unmountOnExit>
+        <CSSTransition classNames="modal" timeout={600} in={isActive} unmountOnExit>
           <section className={style.ModalWrapper}>
             <div className={style.Modal}>
               <div className={style.closeBtn}>
-                <span onClick={() => setIsModal(false)}><TiTimes /></span>
+                <span onClick={setActive}><TiTimes /></span>
               </div>
               <EditTask />
             </div>

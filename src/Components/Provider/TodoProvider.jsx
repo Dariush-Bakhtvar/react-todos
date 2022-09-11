@@ -31,7 +31,7 @@ const reducer = (state, action) => {
     case 'compeleteTask':
       cloneTask.isCompelete = !cloneTask.isCompelete;
       cloneTasks[index] = cloneTasks
-      return cloneTasks
+      return cloneTasks;
     default:
       throw new Error('please selected considered task');
   }
