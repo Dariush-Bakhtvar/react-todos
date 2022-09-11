@@ -30,8 +30,32 @@ const reducer = (state, action) => {
       return RemoveTask;
     case 'compeleteTask':
       cloneTask.isCompelete = !cloneTask.isCompelete;
-      cloneTasks[index] = cloneTasks
+      cloneTasks[index] = cloneTask;
       return cloneTasks;
+    case 'editTask':
+      // console.log(action.id, action.EditWhatDo, action.EditWhereDo, action.EditDate);
+      // console.log(cloneTask);
+      // cloneTask.whatDo = action.EditWhatDo;
+      // cloneTask.whereDo = action.EditWhereDo;
+      // cloneTask.date = {
+      //   day: action.EditDate[0],
+      //   month: action.EditDate[1],
+      //   year: action.EditDate[2],
+      //   time: action.EditDate[3]
+      // };
+      // cloneTasks[index] = cloneTask
+      // console.log(cloneTasks);
+      const editTask = cloneTasks.find(task => task.id === action.id);
+      editTask.whatDo = action.EditWhatDo;
+      editTask.whereDo = action.EditWhereDo;
+      editTask.date = {
+        day: action.EditDate[0],
+        month: action.EditDate[1],
+        year: action.EditDate[2],
+        time: action.EditDate[3]
+      };
+      cloneTasks[index] = editTask;
+      return cloneTasks
     default:
       throw new Error('please selected considered task');
   }

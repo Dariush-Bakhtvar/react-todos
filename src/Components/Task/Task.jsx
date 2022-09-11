@@ -2,17 +2,15 @@ import { useState } from 'react'
 import ProgressBar from '../ProgressBar/ProgressBar';
 import widthActive from '../Hoc/withActive';
 import GetIcons from '../GetIcons/GetIcons'
-import style from './Task.module.scss';
+import EditTask from '../EditTask/EditTask';
 import { CSSTransition } from 'react-transition-group';
-import '../../asset/Sass/modal.scss';
 import { MdEditNote, MdOutlineEditLocationAlt, MdNotListedLocation } from 'react-icons/md';
 import { IoIosTrash, IoIosCheckmarkCircle } from 'react-icons/io';
-// import { IoCheckmarkCircleSharp } from 'react-icons/io5';
 import { TiTimes } from 'react-icons/ti';
 import { GoCalendar } from 'react-icons/go';
 import { GiPlainCircle } from 'react-icons/gi';
-// import { BsCheckCircleFill } from 'react-icons/bs';
-import EditTask from '../EditTask/EditTask';
+import style from './Task.module.scss';
+import '../../asset/Sass/modal.scss';
 const Task = ({ isActive, setActive, Task, OnRemove, OnDone }) => {
   const [isCompelete, setIsCompelete] = useState(false);
   const checkTaskTyep = () => {
@@ -72,7 +70,7 @@ const Task = ({ isActive, setActive, Task, OnRemove, OnDone }) => {
               <div className={style.closeBtn}>
                 <span onClick={setActive}><TiTimes /></span>
               </div>
-              <EditTask />
+              <EditTask taskId={Task.id} />
             </div>
           </section>
         </CSSTransition>
