@@ -104,9 +104,9 @@
  }
  .subMenu{
   position: absolute;
-  top: 34px;
-  right:0;
-  width:100%;
+  top: 48px;
+  left:31px;
+  width:150px;
   height: 85px;
   background: rgba($color: $bg-primary, $alpha: 0.6);
   @include flex(space-around,center);

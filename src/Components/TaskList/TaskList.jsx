@@ -12,7 +12,7 @@ const TaskList = () => {
           key={task.id}
           Task={task}
           OnRemove={() => dispatch({ type: 'removeTask', id: task.id })}
-          OnDone={() => dispatch({ type: 'compeleteTask', id: task.id })}
+          OnDone={() => dispatch({ type: 'DoneTask', id: task.id })}
         />
       });
     return <div className={style.noTodyTask}>

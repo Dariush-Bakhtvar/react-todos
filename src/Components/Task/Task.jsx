@@ -12,7 +12,7 @@ import { GiPlainCircle } from 'react-icons/gi';
 import style from './Task.module.scss';
 import '../../asset/Sass/modal.scss';
 const Task = ({ isActive, setActive, Task, OnRemove, OnDone }) => {
-  const [isCompelete, setIsCompelete] = useState(false);
+  const [isDone, setIsDone] = useState(false);
   const checkTaskTyep = () => {
     switch (Task.taskType) {
       case "Business":
@@ -30,7 +30,7 @@ const Task = ({ isActive, setActive, Task, OnRemove, OnDone }) => {
   return (
     <section className={style.task}>
       <div className={style.taskIcon}>
-        <ProgressBar cx={0} cy={0} r={window.innerWidth > 720 ? 40 : 25} isActive={isCompelete} />
+        <ProgressBar cx={0} cy={0} r={window.innerWidth > 720 ? 40 : 25} isActive={isDone} />
         <span className={style.icon}>
           <GetIcons name={Task.icon} />
         </span>
@@ -38,11 +38,11 @@ const Task = ({ isActive, setActive, Task, OnRemove, OnDone }) => {
       <div className={style.taskDetail}>
         <div className={style.Whatdo}>
           <MdOutlineEditLocationAlt />
-          <p>{isCompelete ? <del>{Task.whatDo}</del> : Task.whatDo}</p>
+          <p>{isDone ? <del>{Task.whatDo}</del> : Task.whatDo}</p>
         </div>
         <div className={style.wheredo}>
           <MdNotListedLocation />
-          <p>{isCompelete ? <del>{Task.whereDo}</del> : Task.whereDo}</p>
+          <p>{isDone ? <del>{Task.whereDo}</del> : Task.whereDo}</p>
         </div>
         <p>
           <span>
@@ -58,7 +58,7 @@ const Task = ({ isActive, setActive, Task, OnRemove, OnDone }) => {
         <span onClick={OnRemove}>
           <IoIosTrash />
         </span>
-        <span onClick={() => { OnDone(); setIsCompelete(!isCompelete) }}>
+        <span onClick={() => { OnDone(); setIsDone(!isDone) }}>
           <IoIosCheckmarkCircle />
         </span>
         <div className={style.editBtn} onClick={setActive}>

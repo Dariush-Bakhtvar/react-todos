@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useTodosAction } from "../Provider/TodoProvider";
 import { ToastContainer, toast } from 'react-toastify';
 // Datapicker package and Time Picker
 import DatePicker from "react-multi-date-picker";
@@ -16,9 +17,7 @@ import InputIcon from "react-multi-date-picker/components/input_icon"
 //datapicker  custom style class
 import '../NewTaskFrom/inputClass.css';
 import style from './EditTask.module.scss';
-import { useEffect } from "react";
-import { useRef } from "react";
-import { useTodosAction } from "../Provider/TodoProvider";
+import '../NewTaskFrom/inputClass.css';
 
 const EditTask = ({ taskId }) => {
   const dispatch = useTodosAction();

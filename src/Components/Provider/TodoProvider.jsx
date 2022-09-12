@@ -20,31 +20,19 @@ const reducer = (state, action) => {
           day: action.WhenDo[0],
           month: action.WhenDo[1],
           year: action.WhenDo[2],
-          time: action.WhatDo[3]
+          time: action.WhenDo[3]
         },
-        isCompelete: false
+        isDone: false
       }
       return [...cloneTasks, task];
     case 'removeTask':
       const RemoveTask = state.filter(task => task.id !== action.id);
       return RemoveTask;
-    case 'compeleteTask':
-      cloneTask.isCompelete = !cloneTask.isCompelete;
+    case 'DoneTask':
+      cloneTask.isDone = !cloneTask.isDone;
       cloneTasks[index] = cloneTask;
       return cloneTasks;
     case 'editTask':
-      // console.log(action.id, action.EditWhatDo, action.EditWhereDo, action.EditDate);
-      // console.log(cloneTask);
-      // cloneTask.whatDo = action.EditWhatDo;
-      // cloneTask.whereDo = action.EditWhereDo;
-      // cloneTask.date = {
-      //   day: action.EditDate[0],
-      //   month: action.EditDate[1],
-      //   year: action.EditDate[2],
-      //   time: action.EditDate[3]
-      // };
-      // cloneTasks[index] = cloneTask
-      // console.log(cloneTasks);
       const editTask = cloneTasks.find(task => task.id === action.id);
       editTask.whatDo = action.EditWhatDo;
       editTask.whereDo = action.EditWhereDo;
@@ -56,6 +44,17 @@ const reducer = (state, action) => {
       };
       cloneTasks[index] = editTask;
       return cloneTasks
+    case 'doneAllTask':
+      const doneAll = cloneTasks.map(task => task);
+      doneAll.forEach(task => task.isDone = true);
+      console.log(doneAll);
+      return cloneTasks
+    case 'removeAllTask':
+      return initialState;
+    case 'search':
+      const value = action.value;
+      const result = value ? state.filter(task => task.whatDo.includes(value.toLowerCase())) : state;
+      return result;
     default:
       throw new Error('please selected considered task');
   }
