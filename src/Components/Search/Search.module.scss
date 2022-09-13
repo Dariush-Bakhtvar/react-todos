@@ -123,3 +123,37 @@
 }
 }
 
+@media screen and (min-width:$mobile-Xs) and (max-width:$mobile-S){
+  .searchWrapper{
+    height: 40px;
+  }
+  .searchBox{	
+    padding-right: calc(5%*3);
+    input[type="text"] {
+      width: 25px;
+      height: 25px;
+      &:focus {
+        width: 150px;
+      }
+      + span{
+        width: 25px;
+        height: 25px;
+        &::before {
+          height: 4px;
+              transform: rotate(45deg) translate(26px, -2px);
+        }
+      }
+    }
+  }
+  .manageTask{
+    width: 120px;
+    height: 25px;
+    font-size: 1.2rem;
+    .subMenu{
+      top: 36px;
+    left: 20px;
+    width: 120px;
+    height: 60px;
+    }
+  }
+}

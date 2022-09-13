@@ -24,3 +24,47 @@ p{
   font-size: 1.3rem;
 }
 }
+.ModalWrapper{
+  width: 622px;
+  height: 640px;
+  background-color: rgba($color:$bg-Navbar, $alpha: 0.8);
+  position: absolute;
+  transform: translate(33%,35%);
+  z-index: 4;
+}
+.Modal{
+  position: absolute;
+  width: 450px;
+  height: 400px;
+  background-color:rgba($color:$bg-Navbar, $alpha: 0.8);
+  border-radius: 4px;
+  transform: translate(-18%,15%);
+  display: grid;
+  grid-template-rows: 30px 1fr;
+}
+.closeBtn{
+font-size: 2.5rem;
+padding:5px;
+text-align: right;
+span{
+  width: 25px;
+  height: 25px;
+  @include flex (center,center);
+  cursor: pointer;
+  background-color: rgba($color: #e74c3c, $alpha: 0.5);
+  color: rgba($color: $bg-input, $alpha: 0.7);
+  transition: all 0.6s ease-in-out;
+  &:hover{
+    background: #e74c3c;
+    color: rgba($color: $bg-input, $alpha: 0.9);
+  }
+}
+}
+@media screen and (min-width:$mobile-Xs) and (max-width:$mobile-S){
+  .taskWrapper{
+    padding-top: 55px;
+  }
+  .noTodyTask{
+    font-size: 3.5rem;
+  }
+}

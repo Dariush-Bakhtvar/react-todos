@@ -1,7 +1,7 @@
 import { useTodos, useTodosAction } from '../Provider/TodoProvider';
 import Task from '../Task/Task';
 import style from './tasklist.module.scss';
-import { ImCalendar } from 'react-icons/im'
+import { ImCalendar } from 'react-icons/im';
 const TaskList = () => {
   const Todos = useTodos();
   const dispatch = useTodosAction();

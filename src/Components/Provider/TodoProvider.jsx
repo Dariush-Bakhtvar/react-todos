@@ -2,12 +2,14 @@ import { createContext, useContext, useReducer } from 'react'
 const TodsContext = createContext();
 const TodosContextDispatcher = createContext();
 const initialState = [];
+let copyState = [];
 const reducer = (state, action) => {
   const index = state.filter(task => task.id === action.id);
   //clone of favorite task
   const cloneTask = { ...state[index] };
   //clone of all tasks
   const cloneTasks = [...state];
+  copyState = [...cloneTasks];
   switch (action.type) {
     case 'newTask':
       const task = {
@@ -53,7 +55,8 @@ const reducer = (state, action) => {
       return initialState;
     case 'search':
       const value = action.value;
-      const result = value ? state.filter(task => task.whatDo.includes(value.toLowerCase())) : state;
+      const result = value ? copyState.filter(task => task.whatDo.includes(value.toLowerCase())) : copyState;
+      console.log(cloneTasks, copyState, result);
       return result;
     default:
       throw new Error('please selected considered task');

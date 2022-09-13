@@ -11,7 +11,7 @@ import { GoCalendar } from 'react-icons/go';
 import { GiPlainCircle } from 'react-icons/gi';
 import style from './Task.module.scss';
 import '../../asset/Sass/modal.scss';
-const Task = ({ isActive, setActive, Task, OnRemove, OnDone }) => {
+const Task = ({ isActive, setActive, Task, OnRemove, OnDone, }) => {
   const [isDone, setIsDone] = useState(false);
   const checkTaskTyep = () => {
     switch (Task.taskType) {
