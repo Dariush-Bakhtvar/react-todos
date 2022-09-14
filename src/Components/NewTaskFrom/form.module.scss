@@ -12,7 +12,11 @@
  border-radius:10px;
 padding: 0 10px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
- input[type="submit"]{
+ .Datapicker{
+  width: 170px;
+ }
+}
+.submitBtn{
    display: block;
   width: 80%;
   height: 40px;
@@ -23,10 +27,13 @@ padding: 0 10px;
   font-size: 1.8rem;
   font-weight: 500;
   border-radius: 4px;
+  transition: all 0.6s ease-in-out;
  }
- .Datapicker{
-  width: 170px;
- }
+.disableBtn{
+  cursor: not-allowed;
+  background-color: rgba($color:$bg-secondry, $alpha: 0.5);
+  transition: all 0.6s ease-in-out;
+
 }
 //title style
 .newTaskTitle{
@@ -148,13 +155,13 @@ height: 130px;
   .NewTaskFrom{
     width: 90%;
     height: 94%;
-    input[type="submit"]{
-      width: 50%;
-      height: 20px;
-      font-weight: 600;
-      font-size: 1.4rem;
-    border-radius: 2px;
-    }
+  }
+ .submitBtn{
+    width: 50%;
+    height: 20px;
+    font-weight: 600;
+    font-size: 1.4rem;
+  border-radius: 2px;
   }
   .newTaskTitle{
     h2{

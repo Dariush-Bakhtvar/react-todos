@@ -4,6 +4,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import withActive from "../Hoc/withActive"
 import ProgressBar from '../ProgressBar/ProgressBar';
 import { useTodosAction } from '../Provider/TodoProvider';
+//select
+import makeAnimated from 'react-select/animated';
 import Select from 'react-select';
 import { FiEdit } from 'react-icons/fi';
 import style from './form.module.scss';
@@ -68,8 +70,6 @@ const SelectInsideColor = {
     },
   }),
 };
-// const selectStyle = [];
-//icon name for btn list
 const Icons = [
   "FaRocketchat",
   "FaHighlighter",
@@ -198,6 +198,7 @@ const NewTaskFrom = ({ isActive, setActive }) => {
       </section>
       <Select className={style.select}
         options={Option}
+        components={makeAnimated()}
         onChange={selectHandler}
         ref={selectRef}
         placeholder="دسته بندی ..."
@@ -235,7 +236,7 @@ const NewTaskFrom = ({ isActive, setActive }) => {
           placeholder='چه موقع؟ *'
         />
       </div>
-      <input type="submit" value="ایجاد" />
+      <input type="submit" value="ایجاد" disabled={!date} className={` ${style.submitBtn} ${!date && style.disableBtn}`} />
       <ToastContainer
         position={window.innerWidth > 720 ? "top-right" : "top-center"}
         autoClose={2000}

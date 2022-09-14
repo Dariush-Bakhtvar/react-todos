@@ -17,8 +17,9 @@
 	border: 1px solid var(--gree);
 	box-shadow: 0 0 6px var(--gree);
 }
-.rmdpi {
-	color: #000;
+.rmdp-input-color {
+	background-color: rgba(0, 0, 0, 0.8);
+	color: #f2f2f2;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) {
 	.rmdp-input {

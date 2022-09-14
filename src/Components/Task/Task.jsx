@@ -1,17 +1,14 @@
 import { useState } from 'react'
 import ProgressBar from '../ProgressBar/ProgressBar';
-import widthActive from '../Hoc/withActive';
 import GetIcons from '../GetIcons/GetIcons'
 import EditTask from '../EditTask/EditTask';
-import { CSSTransition } from 'react-transition-group';
-import { MdEditNote, MdOutlineEditLocationAlt, MdNotListedLocation } from 'react-icons/md';
+import { MdOutlineEditLocationAlt, MdNotListedLocation } from 'react-icons/md';
 import { IoIosTrash, IoIosCheckmarkCircle } from 'react-icons/io';
-import { TiTimes } from 'react-icons/ti';
 import { GoCalendar } from 'react-icons/go';
 import { GiPlainCircle } from 'react-icons/gi';
 import style from './Task.module.scss';
 import '../../asset/Sass/modal.scss';
-const Task = ({ isActive, setActive, Task, OnRemove, OnDone, }) => {
+const Task = ({ Task, OnRemove, OnDone, }) => {
   const [isDone, setIsDone] = useState(false);
   const checkTaskTyep = () => {
     switch (Task.taskType) {
@@ -61,22 +58,9 @@ const Task = ({ isActive, setActive, Task, OnRemove, OnDone, }) => {
         <span onClick={() => { OnDone(); setIsDone(!isDone) }}>
           <IoIosCheckmarkCircle />
         </span>
-        <div className={style.editBtn} onClick={setActive}>
-          <MdEditNote />
-        </div>
-        <CSSTransition classNames="modal" timeout={600} in={isActive} unmountOnExit>
-          <section className={style.ModalWrapper}>
-            <div className={style.Modal}>
-              <div className={style.closeBtn}>
-                <span onClick={setActive}><TiTimes /></span>
-              </div>
-              <EditTask taskId={Task.id} />
-            </div>
-          </section>
-        </CSSTransition>
+        <EditTask taskId={Task.id} />
       </div>
     </section>
   )
 }
-
-export default widthActive(Task)
+export default Task

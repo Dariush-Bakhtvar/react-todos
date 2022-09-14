@@ -18,7 +18,11 @@ import InputIcon from "react-multi-date-picker/components/input_icon"
 import '../NewTaskFrom/inputClass.css';
 import style from './EditTask.module.scss';
 import '../NewTaskFrom/inputClass.css';
-
+import Popup from 'reactjs-popup';
+import { MdEditNote } from 'react-icons/md';
+// import 'reactjs-popup/dist/index.css';
+import './popup.css'
+import { TiTimes } from 'react-icons/ti';
 const EditTask = ({ taskId }) => {
   const dispatch = useTodosAction();
   const [editDate, setEditDate] = useState("");
@@ -63,38 +67,46 @@ const EditTask = ({ taskId }) => {
     }
   }
   return (
-    <form action="#" className={style.editForm} onSubmit={(e) => editFormHandler(e)}>
-      <input type="text" placeholder='چه کاری را ویرایش کنم؟' ref={editWhatDo} className={style.inputText} />
-      <input type="text" placeholder='کجا؟' ref={editWhereDo} className={style.inputText} />
-      <div className={style.calendar}>
-        <DatePicker className={`teal rmdp_input ${isMobile && 'rmdp-mobile'} bg-dark `}
-          value={editDate}
-          onChange={dateHandler}
-          format="D MMMM YYYY HH:mm:ss"
-          calendar={persian}
-          locale={persian_fa}
-          plugins={[<TimePicker position="bottom" />]}
-          calendarPosition="bottom-right"
-          render={<InputIcon />}
-          animations={[opacity(), transition({ from: 35, duration: 800 })]}
-          placeholder='چه موقع؟ *'
-        />
-      </div>
-      <input type="submit" value="ویرایش" />
-      <ToastContainer
-        position={window.innerWidth > 720 ? "top-right" : "top-center"}
-        autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        toastStyle={{ backgroundColor: "#333748", color: "#f2f2f2", fontFamily: "'Shabnam', sans- serif", width: window.innerWidth < 720 && '90%' }}
-        theme="dark"
-      />
-    </form>
+    <Popup className="popup-content" trigger={<button className={style.btnModal}><MdEditNote /> </button>} modal>
+      {close => (
+        <div className={style.modal}>
+          <button className={style.close} onClick={close}><TiTimes /></button>
+          <div className={style.header}> ویرایش </div>
+          <form action="#" className={style.editForm} onSubmit={(e) => editFormHandler(e)}>
+            <input type="text" placeholder='چه کاری را ویرایش کنم؟' ref={editWhatDo} className={style.inputText} />
+            <input type="text" placeholder='کجا؟' ref={editWhereDo} className={style.inputText} />
+            <div className={style.calendar}>
+              <DatePicker className={`teal rmdp_input bg-dark  ${isMobile && 'rmdp-mobile'} `}
+                value={editDate}
+                onChange={dateHandler}
+                format="D MMMM YYYY HH:mm:ss"
+                calendar={persian}
+                locale={persian_fa}
+                plugins={[<TimePicker position="bottom" />]}
+                calendarPosition="bottom-right"
+                render={<InputIcon />}
+                animations={[opacity(), transition({ from: 35, duration: 800 })]}
+                placeholder='چه موقع؟ *'
+              />
+            </div>
+            <input type="submit" value="ویرایش" />
+            <ToastContainer
+              position={window.innerWidth > 720 ? "top-right" : "top-center"}
+              autoClose={2000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              toastStyle={{ backgroundColor: "#333748", color: "#f2f2f2", fontFamily: "'Shabnam', sans- serif", width: window.innerWidth < 720 && '90%' }}
+              theme="dark"
+            />
+          </form>
+        </div>
+      )}
+    </Popup>
   )
 }
 
