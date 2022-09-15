@@ -32,13 +32,13 @@ const Option = [
   { value: "Business", label: "کسب و کار", color: "#00c7c7" },
   { value: "Personal", label: "شخصی", color: "#F24C4C" },
   { value: "Family", label: "خانوادگی", color: "#844685" },
-  { value: "Work", label: "کاری", color: "#F3C623" },
+  { value: "Work", label: "کاری", color: "#05FF97" },
 ];
 const colorMap = {
   Business: "#00c7c7",
   Personal: "#F24C4C",
   Family: "#844685",
-  Work: "#F3C623",
+  Work: "#05FF97",
 };
 const SelectInsideColor = {
   container: (styles) => ({

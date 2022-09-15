@@ -2,14 +2,13 @@ import { createContext, useContext, useReducer } from 'react'
 const TodsContext = createContext();
 const TodosContextDispatcher = createContext();
 const initialState = [];
-let copyState = [];
+let filterState = [];
 const reducer = (state, action) => {
   const index = state.filter(task => task.id === action.id);
   //clone of favorite task
   const cloneTask = { ...state[index] };
   //clone of all tasks
-  const cloneTasks = [...state];
-  copyState = [...cloneTasks];
+  let cloneTasks = [...state];
   switch (action.type) {
     case 'newTask':
       const task = {
@@ -26,9 +25,11 @@ const reducer = (state, action) => {
         },
         isDone: false
       }
+      filterState.push(task);
       return [...cloneTasks, task];
     case 'removeTask':
       const RemoveTask = state.filter(task => task.id !== action.id);
+      filterState = [...RemoveTask];
       return RemoveTask;
     case 'DoneTask':
       cloneTask.isDone = !cloneTask.isDone;
@@ -49,15 +50,26 @@ const reducer = (state, action) => {
     case 'doneAllTask':
       const doneAll = cloneTasks.map(task => task);
       doneAll.forEach(task => task.isDone = true);
-      console.log(doneAll);
+      cloneTasks = [...doneAll]
       return cloneTasks
     case 'removeAllTask':
+      filterState = [];
       return initialState;
-    case 'search':
-      const value = action.value;
-      const result = value ? copyState.filter(task => task.whatDo.includes(value.toLowerCase())) : copyState;
-      console.log(cloneTasks, copyState, result);
-      return result;
+    case 'filter': {
+      const value = action.event;
+      const filter = value !== 'All' ? filterState.filter(task => task.taskType === value) : filterState;
+      return filter;
+    }
+    case 'search': {
+      const value = `${action.event}`.toLowerCase();
+      if (action.isCheck) {
+        const result = value ? cloneTasks.filter(task => task.whatDo.includes(value) || task.whereDo.includes()) : cloneTasks;
+        return result;
+      } else {
+        const result = value ? filterState.filter(task => task.whatDo.includes(value) || task.whereDo.includes()) : filterState;
+        return result;
+      }
+    }
     default:
       throw new Error('please selected considered task');
   }
