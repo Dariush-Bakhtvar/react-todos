@@ -12,12 +12,12 @@ const Search = ({ isActive, setActive, Filter }) => {
   const [search, setSearch] = useState("");
   const searchHandler = (e, isCheck = false) => {
     if (!Filter) {
-      dispatch({ type: 'search', value: e.target.value, isCheck });
+      dispatch({ type: 'search', event: e.target.value, isCheck });
       setSearch(e.target.value);
     } else {
       isCheck = true;
       dispatch({ type: 'filter', event: Filter });
-      dispatch({ type: 'search', event: e.target.value });
+      dispatch({ type: 'search', event: e.target.value, isCheck });
       setSearch(e.target.value);
     }
   }

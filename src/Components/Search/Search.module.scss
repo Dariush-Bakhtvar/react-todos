@@ -117,12 +117,15 @@
     height: 40px;
   }
   .searchBox{	
-    padding-right: calc(5%*3);
+    padding-right:2%;
     input[type="text"] {
       width: 25px;
       height: 25px;
       &:focus {
         width: 150px;
+        + span{
+          width:150px
+        }
       }
       + span{
         width: 25px;

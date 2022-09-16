@@ -12,18 +12,18 @@ const Option = [
   { value: "Work", label: "کاری", color: "#05FF97" },
 ];
 const FilterType = () => {
-  const [select, setSelect] = useState("");
+  const [filter, setFilter] = useState("");
   const dispatch = useTodosAction();
   const selectHandler = (e) => {
     dispatch({ type: 'filter', event: e.value });
-    setSelect(e.value);
+    setFilter(e.value);
   }
   return (
     <>
       <Select className={style.select}
         options={Option}
         onChange={selectHandler}
-        defaultValue={select}
+        defaultValue={filter}
         placeholder="فیلتر..."
         styles={selectStyles}
         theme={(theme) => ({
@@ -43,7 +43,7 @@ const FilterType = () => {
           },
         })}
       />
-      <Search Filter={select} />
+      <Search Filter={filter} />
     </>
   )
 }

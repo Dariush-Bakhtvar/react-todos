@@ -1,4 +1,11 @@
+@import '../../../asset/Sass/mixin';
+@import '../../../asset/Sass/variable';
 .select{
   width:180px;
   font-size:1.2rem;
+}
+@media screen and (min-width:$mobile-Xs) and (max-width:$mobile-S){
+.select{
+  width: 80px;
+}
 }

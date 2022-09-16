@@ -63,7 +63,7 @@ const reducer = (state, action) => {
     case 'search': {
       const value = `${action.event}`.toLowerCase();
       if (action.isCheck) {
-        const result = value ? cloneTasks.filter(task => task.whatDo.includes(value) || task.whereDo.includes()) : cloneTasks;
+        const result = value ? state.filter(task => task.whatDo.includes(value) || task.whereDo.includes()) : state;
         return result;
       } else {
         const result = value ? filterState.filter(task => task.whatDo.includes(value) || task.whereDo.includes()) : filterState;

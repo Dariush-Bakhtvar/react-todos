@@ -15,7 +15,8 @@
   z-index: 3;
 }
 @media screen and (min-width:$mobile-Xs) and (max-width:$mobile-S){
-  .searchWrapper{
-    height: 40px;
+  .headerWrapper{
+    height: 50px;
+    padding: 0 5px;
   }
 }

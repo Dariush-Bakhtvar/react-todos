@@ -10,8 +10,8 @@ export const selectStyles = {
     ...styles,
     "@media only screen and (min-width: 320px) and (max-width:480px)": {
       ...styles["@media only screen and(min-width: 320px) and (max-width:480px)"],
-      height: 16,
-      marginBottom: 14,
+      height: 24,
+      // marginBottom: 14,
     },
   }),
   singleValue: (provided, { data }) => ({
@@ -26,6 +26,7 @@ export const selectStyles = {
     '&:hover': {
       border: '0 !important'
     },
+    cursor: 'pointer',
     height: 25,
     background: "rgba(51, 55, 72, 0.6)",
     "@media only screen and (min-width: 320px) and (max-width:480px)": {
@@ -55,4 +56,11 @@ export const selectStyles = {
       background: Option.color,
     }
   }),
+  // valueContainer:(style)=>({
+  //   ...style,
+  // }),
+  input: (style) => ({
+    ...style,
+    color: "#f2f2f2",
+  })
 };
