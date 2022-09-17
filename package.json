@@ -3,7 +3,6 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
-		"@headlessui/react": "^1.7.1",
 		"chart.js": "^3.9.1",
 		"chroma-js": "^2.4.2",
 		"date-fns-jalali": "^2.29.2-0",
@@ -43,10 +42,5 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
-	},
-	"devDependencies": {
-		"autoprefixer": "^9.8.8",
-		"postcss": "^7.0.39",
-		"tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
 	}
 }

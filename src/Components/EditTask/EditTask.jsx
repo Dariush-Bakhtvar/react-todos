@@ -13,6 +13,7 @@ import opacity from "react-element-popper/animations/opacity";
 import "react-multi-date-picker/styles/colors/teal.css"
 import "react-multi-date-picker/styles/layouts/prime.css"
 import "react-multi-date-picker/styles/layouts/mobile.css"
+import "react-multi-date-picker/styles/backgrounds/bg-dark.css"
 import InputIcon from "react-multi-date-picker/components/input_icon"
 //datapicker  custom style class
 import '../NewTaskFrom/inputClass.css';

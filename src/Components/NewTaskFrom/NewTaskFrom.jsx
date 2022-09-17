@@ -27,6 +27,7 @@ import './inputClass.css';
 import { FaPlus } from "react-icons/fa";
 import { RiImageEditFill } from 'react-icons/ri'
 import GetIcons from '../GetIcons/GetIcons';
+//date-fns-jalali
 //react-select option and style
 const Option = [
   { value: "Business", label: "کسب و کار", color: "#00c7c7" },
@@ -135,6 +136,7 @@ const NewTaskFrom = ({ isActive, setActive }) => {
   }
   //set Date in date hook
   const dateHandler = (e) => {
+    // console.log(e.format());
     setDate(e);
   }
   //set new task =>create new task
@@ -234,6 +236,7 @@ const NewTaskFrom = ({ isActive, setActive }) => {
           render={<InputIcon />}
           animations={[opacity(), transition({ from: 35, duration: 800 })]}
           placeholder='چه موقع؟ *'
+          minDate={new Date()}
         />
       </div>
       <input type="submit" value="ایجاد" disabled={!date} className={` ${style.submitBtn} ${!date && style.disableBtn}`} />
