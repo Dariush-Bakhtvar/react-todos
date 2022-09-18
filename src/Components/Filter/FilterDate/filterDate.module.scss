@@ -21,16 +21,35 @@
   top: 28px;
   right: 0;
   width: 100%;
-  background-color:rgba($color: $bg-primary, $alpha: 0.7);
+  background-color:rgba($color: $bg-primary, $alpha: 0.95);
   padding: 0 2px;
   font-size: 1.3rem;
+  cursor: pointer;
+  z-index: 6;
+  border-radius: 4px;
   li{
     @include flex(space-between,center);
-    padding: 0 3px;
+    padding: 3px;
   }
 }
 .division{
   width: 100%;
   height: 1px;
   background-color:rgba($color: $bg-input, $alpha: 0.4);
+}
+.upComing{
+font-size: 1.2rem;
+p{
+  padding: 3px;
+  margin-bottom: 3px;
+}
+}
+.nothing{
+  font-size: 1.2rem;
+  @include flex(space-around,center);
+  padding: 10px 2px;
+  opacity: 0.6;
+  svg{
+    font-size: 1.6rem;
+  }
 }

@@ -60,6 +60,34 @@ span{
   }
 }
 }
+.Filter{
+width: 100%;
+height: 60px;
+@include flex(flex-start,center);
+position: relative;
+padding-right: 10%;
+margin-bottom: 2%;
+}
+.manageTask{
+  width: 64px;
+  height: 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.4rem;
+  @include flex(space-around,center);
+  margin-right:5px;
+  li{
+    background: rgba($color: $bg-primary, $alpha: 0.7);
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    border-radius: 4px;
+     @include flex(center,center);
+    svg{
+      font-size: 2rem;
+    }
+  }
+}
 @media screen and (min-width:$mobile-Xs) and (max-width:$mobile-S){
   .taskWrapper{
     padding-top: 55px;
