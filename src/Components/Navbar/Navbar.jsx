@@ -7,9 +7,11 @@ import withActive from '../Hoc/withActive'
 const Navbar = ({ isActive, setActive }) => {
   const DropDown = () => {
     return <ul className={`${style.submenu}`}>
-      <li className={style.userInfo}>
-        <AiFillGithub />
-        <span>Dariush Bakhtvar</span>
+      <li>
+        <a href={'https://github.com/Dariush-Bakhtvar'} className={style.userInfo}>
+          <AiFillGithub />
+          <span>Dariush Bakhtvar</span>
+        </a>
       </li>
       <li>
         <MdNotifications />
@@ -41,10 +43,10 @@ const Navbar = ({ isActive, setActive }) => {
       <div className={style.profile} onClick={setActive}>
         <img src={require('../../asset/Img/Profile.jpg')} alt="Profile" />
         <span className={style.status}></span>
-        <CSSTransition in={isActive} classNames='modal' timeout={600} unmountOnExit >
-          {DropDown()}
-        </CSSTransition>
       </div>
+      <CSSTransition in={isActive} classNames='modal' timeout={600} unmountOnExit >
+        {DropDown()}
+      </CSSTransition>
     </nav>
   )
 }

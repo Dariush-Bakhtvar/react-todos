@@ -78,6 +78,13 @@ li{
       font-size: 1.3rem;
     }
 }
+.userInfo{
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: row-reverse;
+}
 @media screen  and (min-width:320px) and (max-width:480px){
   .profile{
     @include flex(center,center);
@@ -89,5 +96,10 @@ li{
   }
   .status{ right:18%}
   .submenu{left:10px;}
+  .Logo{
+    img{
+      width: 45%;
+    }
+  }
 
 }
