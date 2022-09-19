@@ -1,4 +1,8 @@
-import { createContext, useContext, useReducer } from 'react'
+import { createContext, useContext, useReducer } from 'react';
+import { DateObject } from "react-multi-date-picker";
+import persian from "react-date-object/calendars/persian";
+import persian_fa from "react-date-object/locales/persian_fa";
+const toDayObj = new DateObject({ calendar: persian, locale: persian_fa, format: "D MMMM YYYY", });
 const TodsContext = createContext();
 const TodosContextDispatcher = createContext();
 const initialState = [];
@@ -69,6 +73,18 @@ const reducer = (state, action) => {
         const result = value ? filterState.filter(task => task.whatDo.includes(value) || task.whereDo.includes()) : filterState;
         return result;
       }
+    }
+    case 'filterDate': {
+      const Today = toDayObj.format().toString().split(" ");
+      const value = action.event;
+      const filterDate = [...filterState];
+      if (value === 'امروز') {
+        return filterDate.filter(task => task.date.day.includes(Today[0]) && task.date.month.includes(Today[1]));
+      } else {
+        const anohterDays = action.event.toString().split(" ");
+        return filterDate.filter(task => task.date.day.includes(anohterDays[0]) && task.date.month.includes(anohterDays[1]));
+      }
+
     }
     default:
       throw new Error('please selected considered task');
