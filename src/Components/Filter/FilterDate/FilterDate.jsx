@@ -27,7 +27,6 @@ const FilterDate = ({ isActive, setActive }) => {
       subarray.filter(item => !known.has(item.day) && known.add(item.day))
     )
     let filtered = compare.filter(item => item.length);
-    console.log(filtered.flat());
     return filtered.flat();
   }
   const dayList = getDateList();

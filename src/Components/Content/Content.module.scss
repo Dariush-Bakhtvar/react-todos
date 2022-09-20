@@ -9,3 +9,8 @@
   margin: 10px auto;
   overflow: hidden;
 }
+@media screen and (min-width:$mobile-Xs) and (max-width:$mobile-S){
+  .Wrapper{
+    height: 680px;
+  }
+}

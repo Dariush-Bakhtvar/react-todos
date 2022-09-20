@@ -225,10 +225,11 @@ const NewTaskFrom = ({ isActive, setActive }) => {
       <input className={style.inputTask} type="text" placeholder='چه کاری را باید انجام بدم؟ *' ref={inputWhatDo} />
       <input className={style.inputTask} type="text" placeholder='کجا؟ *' ref={inputWhereDo} />
       <div className={style.calendar}>
-        <DatePicker className={`teal ${style.rmdp_input} ${isMobile && 'rmdp-mobile'}`}
+        <DatePicker className={`teal ${style.rmdp_input} ${window.innerWidth < 720 && 'rmdp-mobile'}`}
           value={date}
+          portal
           onChange={dateHandler}
-          format="D MMMM YYYY HH:mm:ss"
+          format="D MMMM YYYY HH:mm:ss" //
           calendar={persian}
           locale={persian_fa}
           plugins={[<TimePicker position="bottom" />]}
