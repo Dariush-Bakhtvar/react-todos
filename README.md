@@ -1,11 +1,43 @@
-#  <img src="https://img.shields.io/badge/Todoist-E44332?style=for-the-badge&logo=todoist&logoColor=white">   React Todo List App
+## React Todo List App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="https://img.shields.io/badge/Todoist-E44332?style=for-the-badge&logo=todoist&logoColor=white">  React Todo list 
+
+## Demo Project 
+<img src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white"> <p>Click <a href="https://react-todolist-v2.netlify.app/"><Strong>Here</strong></a> to view Demo</p>
 
 ## :wrench:Technologies 
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"> <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white"> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
 <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
 
+## Project abilities
+
+ * create new task by filter task type
+ * show tasks in chart and group task
+ * filter tasks by filter type
+ * filter task by filter Date
+ * search task 
+ * manage task by edit done delete 
+ * manage All task by DeleteAll DoneAll
+ * responsive in small break pint
+ 
+ ## Project packges:
+
+* chart.js : "^3.9.1",
+* framer-motion : "^6.5.1",
+* react-chartjs-2 : "^4.3.1",
+* react-icons : "^4.4.0",
+* react-multi-date-picker : "^3.3.0",
+* react-select : "^5.4.0",
+* react-toastify : "^9.0.8",
+* react-transition-group : "^4.4.5",
+* reactjs-popup : "^2.0.5",
+* sass : "^1.54.5",
+ 
+## Project screenshot
+<img src="https://github.com/Dariush-Bakhtvar/react-todos/blob/master/src/asset/Img/Screenshot%20(637).png">
+<img src="https://github.com/Dariush-Bakhtvar/react-todos/blob/master/src/asset/Img/Screenshot%20(639).png">
+<img src="https://github.com/Dariush-Bakhtvar/react-todos/blob/master/src/asset/Img/Screenshot%20(644).png">
+<img src="https://github.com/Dariush-Bakhtvar/react-todos/blob/master/src/asset/Img/Screenshot%20(643).png">
 ## Available Scripts
 
 In the project directory, you can run:
@@ -18,10 +50,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
@@ -43,32 +71,4 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ 
