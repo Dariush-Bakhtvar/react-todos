@@ -7,3 +7,9 @@
 @function strokeDashoffset($num) {
     @return 440 - (440 * $num) / 100;
 }
+@mixin ResponsiveBtns {
+   font-size: 1.4rem;
+  font-family: inherit;
+  height: 30px;
+  width: 144px;
+}

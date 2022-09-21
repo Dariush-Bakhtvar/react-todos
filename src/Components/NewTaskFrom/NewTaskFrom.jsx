@@ -23,7 +23,7 @@ import "react-multi-date-picker/styles/layouts/prime.css"
 import "react-multi-date-picker/styles/layouts/mobile.css"
 import InputIcon from "react-multi-date-picker/components/input_icon"
 //datapicker  custom style class
-import './inputClass.css';
+import '../../asset/Css/Datapicker.css';
 import { FaPlus } from "react-icons/fa";
 import { RiImageEditFill } from 'react-icons/ri'
 import GetIcons from '../GetIcons/GetIcons';

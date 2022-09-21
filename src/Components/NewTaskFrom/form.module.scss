@@ -25,7 +25,7 @@ padding: 0 10px;
   cursor: pointer;
   border: none;
   font-size: 1.8rem;
-  font-weight: 500;
+  font-family: inherit;
   border-radius: 4px;
   transition: all 0.6s ease-in-out;
  }
@@ -157,11 +157,10 @@ height: 130px;
     height: 94%;
   }
  .submitBtn{
-    width: 50%;
-    height: 20px;
-    font-weight: 600;
+    width: 144px;
+    height: 24px;
     font-size: 1.4rem;
-  border-radius: 2px;
+  border-radius: 3px;
   }
   .newTaskTitle{
     h2{
@@ -204,5 +203,14 @@ height: 130px;
       right: 0;
       bottom: -3px;
     }
+  }
+}
+@media screen and (min-width:$tablet-m) and (max-width:$tablet-l){
+  .NewTaskFrom{
+    width: 80%;
+    padding: 0 40px;
+  }
+  .newTaskTitle{
+    display: none;
   }
 }

@@ -14,6 +14,7 @@
   color: $color-secondry;
   border-radius: 5px;
   font-size: 1.8rem;
+  font-family: inherit;
 }
 }
 .Panel{
@@ -53,11 +54,33 @@
     width: 100%;
     height: 50%;
     button{
-     width: 45%;
-    height: 22px;
+    @include ResponsiveBtns;
+    }
+  }
+  .Panel{
+    width: 100%;
+    height: 90%;
+     transform: translateY(300px);
+     transition: transform .6s ease-in-out;
+     justify-content: space-between;
+  }
+  .fadeIn{
+      transform: translateY(0);
+       transition: transform .6s ease-in-out;
+  }
+  .tasksummery{
+    padding:0 25px;
     font-size: 1.3rem;
-    font-weight: 600;
-    border-radius: 4px;
+  }
+ 
+}
+@media screen and (min-width:$tablet-m) and (max-width:$tablet-l){
+   .LeftOverlay{
+    width: 100%;
+    height: 50%;
+    button{
+    @include ResponsiveBtns;
+      width: 205px;
     }
   }
   .Panel{

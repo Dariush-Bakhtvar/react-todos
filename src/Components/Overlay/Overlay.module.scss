@@ -25,3 +25,14 @@
     transform: translateY(100%);
   }
 }
+@media screen and (min-width:$tablet-m) and (max-width:$tablet-l){
+    .Overlay{
+    width: 100%;
+    height: 50%;
+    left: 0;
+    transform: translateY(0);
+  }
+  .ActiveOverlay{
+    transform: translateY(100%);
+  }
+}

@@ -1,0 +1,32 @@
+.rmdp-input {
+	--gree: #14af6e;
+	--bg-input: #f2f2f2;
+	--mobile-sx: 320px;
+	--mobile-s: 480px;
+	background-color: var(--bg-input);
+	height: 32px !important;
+	padding: 4px 12px !important;
+	border: none !important;
+	border-radius: 4px !important;
+	font-family: inherit;
+	color: #444;
+}
+
+.rmdp-input:focus {
+	outline: none !important;
+	border: 1px solid var(--gree) !important;
+	box-shadow: 0 0 6px var(--gree) !important;
+}
+.rmdp-input-color {
+	background-color: rgba(0, 0, 0, 0.8);
+	color: #f2f2f2;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+	.rmdp-input {
+		height: 24px !important;
+		padding: 0 20px !important;
+		font-size: 1.1rem !important;
+		border-radius: 3px !important;
+		border: none !important;
+	}
+}

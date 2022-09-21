@@ -1,11 +1,23 @@
+@import '../.../../../asset/Sass/component';
+@import '../.../../../asset/Sass/mixin';
+@import '../.../../../asset/Sass/variable';
 .ChartWrapper{
   width:400px;
   height: 400px;
 }
-@media screen and (min-width:320px) and (max-width:480px) {
+@media screen and (min-width:$mobile-Xs) and (max-width:$mobile-S) {
   .ChartWrapper{
     width: 220px;
     height: 200px;
-    padding-top: 20%;
+    padding-top: 12%;
+  }
+}
+@media screen and (min-width:$tablet-m) and (max-width:$tablet-l){
+   .ChartWrapper{
+    width: 250px;
+    height: 200px;
+    canvas[role="img"]{
+        margin-top: 40%;
+    }
   }
 }

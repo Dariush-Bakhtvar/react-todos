@@ -55,3 +55,17 @@
     transform: translateY(50%);
   }
 }
+@media screen and (min-width:$tablet-m) and (max-width:$tablet-l){
+ .LeftLayout{
+    width: 100%;
+    height: 50%;
+    transform: translateY(100%);
+  }
+  .leftWrapper{
+     grid-template-rows: 40px 1fr;
+  }
+
+  .fadeout{
+    transform: translateY(50%);
+  }
+}

@@ -14,3 +14,8 @@
     height: 680px;
   }
 }
+@media screen and (min-width:$tablet-m) and (max-width:$tablet-l){
+ .Wrapper{
+    height: 850px;
+  }
+}

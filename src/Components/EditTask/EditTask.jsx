@@ -16,14 +16,13 @@ import "react-multi-date-picker/styles/layouts/mobile.css"
 import "react-multi-date-picker/styles/backgrounds/bg-dark.css"
 import InputIcon from "react-multi-date-picker/components/input_icon"
 //datapicker  custom style class
-import '../NewTaskFrom/inputClass.css';
-import style from './EditTask.module.scss';
-import '../NewTaskFrom/inputClass.css';
-import Popup from 'reactjs-popup';
-import { MdEditNote } from 'react-icons/md';
+import '../../asset/Css/Datapicker.css';
 // import 'reactjs-popup/dist/index.css';
-import './popup.css'
+import Popup from 'reactjs-popup';
+import '../../asset/Css/popup.css';
+import { MdEditNote } from 'react-icons/md';
 import { TiTimes } from 'react-icons/ti';
+import style from './EditTask.module.scss';
 const EditTask = ({ taskId }) => {
   const dispatch = useTodosAction();
   const [editDate, setEditDate] = useState("");
